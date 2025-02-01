@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/preflight"; /* 기존 @tailwind base 대체 */
+@import "tailwindcss/utilities"; /* 기존 @tailwind utilities 대체 */
 
 :root {
   font-family: "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui,
@@ -22,7 +21,7 @@
 
 body {
   width: 100%;
-  min-width: 320px;
+  min-width: 360px;
   height: fit-content;
   min-height: 100vh;
   display: flex;
