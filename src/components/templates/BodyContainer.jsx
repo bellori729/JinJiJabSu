@@ -1,5 +1,3 @@
-import React from "react";
-
 const BodyContainer = ({ className, style, children }) => {
   return (
     <div
@@ -10,7 +8,7 @@ const BodyContainer = ({ className, style, children }) => {
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default BodyContainer;
+export default BodyContainer

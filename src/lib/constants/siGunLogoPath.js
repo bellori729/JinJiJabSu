@@ -1,4 +1,4 @@
-const defaultPath = "assets/images/siGunLogo/";
+const defaultPath = "assets/images/siGunLogo/"
 
 const siGunLogoPath = {
   가평군: defaultPath + "gapyeong.png",
@@ -32,6 +32,6 @@ const siGunLogoPath = {
   포천시: defaultPath + "pocheon.png",
   하남시: defaultPath + "hanam.jpg",
   화성특례시: defaultPath + "hwaseong.jpg",
-};
+}
 
-export default siGunLogoPath;
+export default siGunLogoPath

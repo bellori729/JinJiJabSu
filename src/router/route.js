@@ -1,9 +1,9 @@
-const PREFIX = "/";
+const PREFIX = "/"
 
 const route = {
   default: PREFIX,
 
   home: PREFIX,
-};
+}
 
-export default route;
+export default route

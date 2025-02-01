@@ -1,7 +1,5 @@
-import React from "react";
-
 const SiGunLogo = ({ className, style, path, siGunName }) => {
-  console.log(path);
+  console.log(path)
 
   return (
     <img
@@ -13,7 +11,7 @@ const SiGunLogo = ({ className, style, path, siGunName }) => {
     >
       {siGunName}
     </img>
-  );
-};
+  )
+}
 
-export default SiGunLogo;
+export default SiGunLogo

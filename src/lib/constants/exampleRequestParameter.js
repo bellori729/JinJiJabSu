@@ -7,4 +7,4 @@ const exampleRequestParameter = {
   // ========== 이 아래는 선택사항 ========== //
   SIGUN_NM: "의정부시", // 시군명
   SIGUN_CD: "41150", // 시군코드
-};
+}

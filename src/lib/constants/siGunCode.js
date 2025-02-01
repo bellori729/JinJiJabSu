@@ -30,6 +30,6 @@ const siGunCode = {
   포천시: 41650,
   하남시: 41450,
   화성특례시: 41590,
-};
+}
 
-export default siGunCode;
+export default siGunCode

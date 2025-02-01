@@ -1,10 +1,20 @@
-@import "tailwindcss/preflight"; /* 기존 @tailwind base 대체 */
-@import "tailwindcss/utilities"; /* 기존 @tailwind utilities 대체 */
+@import "tailwindcss";
 
 :root {
-  font-family: "Pretendard GOV", -apple-system, BlinkMacSystemFont, system-ui,
-    Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  font-family:
+    "Pretendard GOV",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    "Helvetica Neue",
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

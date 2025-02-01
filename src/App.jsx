@@ -1,15 +1,15 @@
-import "./App.css";
-import { useScrollToTop } from "./lib/hooks/useScrollToTop";
-import Router from "./router/Router";
+import "./App.css"
+import { useScrollToTop } from "./lib/hooks/useScrollToTop"
+import Router from "./router/Router"
 
 const App = () => {
-  useScrollToTop();
+  useScrollToTop()
 
   return (
     <>
       <Router />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
