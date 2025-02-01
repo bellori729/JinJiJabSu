@@ -1,0 +1,37 @@
+const defaultPath = "assets/images/siGunLogo/";
+
+const siGunLogoPath = {
+  가평군: defaultPath + "gapyeong.png",
+  고양특례시: defaultPath + "goyang.jpg",
+  과천시: defaultPath + "gwacheon.png",
+  광명시: defaultPath + "gwangmyeong.jpg",
+  광주시: defaultPath + "gwangju.png",
+  구리시: defaultPath + "guri.jpg",
+  군포시: defaultPath + "gunpo.png",
+  김포시: defaultPath + "gimpo.png",
+  남양주시: defaultPath + "namyangju.jpg",
+  동두천시: defaultPath + "dongducheon.png",
+  부천시: defaultPath + "bucheon.png",
+  성남시: defaultPath + "seongnam.png",
+  수원특례시: defaultPath + "suwon.jpg",
+  시흥시: defaultPath + "siheung.png",
+  안산시: defaultPath + "ansan.png",
+  안성시: defaultPath + "anseong.png",
+  안양시: defaultPath + "anyang.png",
+  양주시: defaultPath + "yangju.png",
+  양평군: defaultPath + "yangpyeong.png",
+  여주시: defaultPath + "yeoju.png",
+  연천군: defaultPath + "yeoncheon.png",
+  오산시: defaultPath + "osan.jpg",
+  용인특례시: defaultPath + "yongin.jpg",
+  의왕시: defaultPath + "uiwang.jpg",
+  의정부시: defaultPath + "uijeongbu.png",
+  이천시: defaultPath + "icheon.png",
+  파주시: defaultPath + "paju.png",
+  평택시: defaultPath + "pyeongtaek.png",
+  포천시: defaultPath + "pocheon.png",
+  하남시: defaultPath + "hanam.jpg",
+  화성특례시: defaultPath + "hwaseong.jpg",
+};
+
+export default siGunLogoPath;
