@@ -55,7 +55,7 @@ const Home = () => {
   }
 
   return (
-    <BasicTemplate>
+    <BasicTemplate isNoBack={true}>
       <div>총 결과 {listTotalCount}</div>
       <MainContainer>
         <ul>
