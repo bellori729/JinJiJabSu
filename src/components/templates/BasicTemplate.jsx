@@ -1,10 +1,12 @@
 import BodyContainer from "./BodyContainer"
 import SkipLink from "../atoms/SkipLink"
+import Header from "../organisms/Header"
 
-const BasicTemplate = ({ children }) => {
+const BasicTemplate = ({ noSkipLink, children }) => {
   return (
     <BodyContainer>
-      <SkipLink id="main" />
+      <Header />
+      {!noSkipLink && <SkipLink id="main" />}
       {children}
     </BodyContainer>
   )
