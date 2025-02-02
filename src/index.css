@@ -37,4 +37,12 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f8f9fa;
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
 }
