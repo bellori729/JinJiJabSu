@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { API_KEY, API_URL } from "../../../lib/api/apj"
-import siGunLogoPath from "../../../lib/constants/siGunLogoPath"
-import SiGunLogo from "../../atoms/SiGunLogo"
 import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
 
@@ -59,15 +57,12 @@ const Home = () => {
   return (
     <BasicTemplate>
       <div>총 결과 {listTotalCount}</div>
-      <ul>
-        {list.map((item) => (
-          <li key={item.MANAGE_INST_TELNO}>{item.FACLT_NM}</li>
-        ))}
-      </ul>
       <MainContainer>
-        {Object.keys(siGunLogoPath).map((key) => {
-          return <SiGunLogo key={key} path={siGunLogoPath[key]} alt={key} />
-        })}
+        <ul>
+          {list.map((item) => (
+            <li key={item.MANAGE_INST_TELNO}>{item.FACLT_NM}</li>
+          ))}
+        </ul>
       </MainContainer>
     </BasicTemplate>
   )
