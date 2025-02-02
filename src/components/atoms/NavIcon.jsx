@@ -1,4 +1,4 @@
-import navigationIconPath from "../../lib/constants/NavigationIconPath"
+import navigationIconPath from "../../lib/constants/navigationIconPath"
 
 const NavIcon = ({ type, isActive, altText }) => {
   const defaultStyle = "w-[30px] h-[30px]"
