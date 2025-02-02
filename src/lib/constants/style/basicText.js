@@ -1,4 +1,4 @@
-export const basicTextRegular = "text-[#272829] text-[24px] leading-[150%] font-[400]"
+export const basicTextRegular = "text-[#272829] text-[16px] leading-[150%] font-[400]"
 
 export const basicTextMedium = `${basicTextRegular} font-[500]`
 
