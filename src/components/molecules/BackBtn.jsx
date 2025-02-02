@@ -8,10 +8,10 @@ const BackBtn = ({ onClick }) => {
       type="button"
       aria-label="뒤로가기"
       title="뒤로가기"
-      className="w-[30px] h-[30px]"
+      className="w-[30px] h-[30px] hover:scale-[1.1] transition-transform"
       onClick={onClick || (() => navigate(-1))}
     >
-      <img className="w-full h-full" src="/assets/icons/back.png" alt="" />
+      <img className={`w-full h-full`} src="/assets/icons/back.png" alt="" />
     </button>
   )
 }
