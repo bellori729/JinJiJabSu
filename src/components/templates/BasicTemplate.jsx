@@ -1,13 +1,20 @@
 import BodyContainer from "./BodyContainer"
 import SkipLink from "../atoms/SkipLink"
 import Header from "../organisms/Header"
+import Navigation from "../organisms/Navigation"
 
-const BasicTemplate = ({ noSkipLink, children }) => {
+const BasicTemplate = ({ isNone, isNoBack, isNoSearch, noSkipLink, children }) => {
   return (
     <BodyContainer>
-      <Header />
-      {!noSkipLink && <SkipLink id="main" />}
+      {!noSkipLink && (
+        <>
+          <SkipLink id="main" />
+          <SkipLink id="navigation" text="네비게이션 바로가기" />
+        </>
+      )}
+      <Header isNone={isNone} isNoBack={isNoBack} isNoSearch={isNoSearch} />
       {children}
+      <Navigation />
     </BodyContainer>
   )
 }
