@@ -1,5 +1,9 @@
-const MainContainer = ({ children }) => {
-  return <main id="main">{children}</main>
+const MainContainer = ({ children, className, style }) => {
+  return (
+    <main id="main" className={className} style={style}>
+      {children}
+    </main>
+  )
 }
 
 export default MainContainer
