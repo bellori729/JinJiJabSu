@@ -5,6 +5,11 @@ const route = {
 
   home: PREFIX,
   search: PREFIX + "search",
+  bookmark: PREFIX + "bookmark",
+  more: PREFIX + "more",
+
+  result: PREFIX + "result",
+  result_detail: PREFIX + "result/:id",
 
   // ========== ETC ========== //
   ui: PREFIX + "ui",
