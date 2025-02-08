@@ -5,13 +5,14 @@ const NavIcon = ({ type, isActive, altText }) => {
 
   return (
     <>
-      {Object.keys(navigationIconPath).map((key) => {
+      {Object.keys(navigationIconPath).map((key, index) => {
         if (type !== key) {
           return null
         } else {
           return (
             type === key && (
               <img
+                key={index}
                 className={defaultStyle}
                 src={isActive ? navigationIconPath[`${key}_active`] : navigationIconPath[key]}
                 alt={altText || ""}
