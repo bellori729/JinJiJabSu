@@ -1,7 +1,7 @@
 const BodyContainer = ({ className, style, children }) => {
   return (
     <div
-      className={`w-[360px] flex flex-col relative pb-[100px] ${className}`}
+      className={`w-[360px] flex flex-col relative ${className}`}
       style={{
         ...style,
       }}

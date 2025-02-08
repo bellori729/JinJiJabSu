@@ -4,7 +4,7 @@ import SearchBtn from "../molecules/SearchBtn"
 
 const Header = ({ isNone, isNoBack, isNoLogo, isNoSearch }) => {
   return (
-    <header className={`w-full h-[50px] flex items-center px-[20px] justify-between`}>
+    <header className={`w-full h-[85px] flex items-center px-[25px] justify-between`}>
       {!isNone && (
         <>
           {!isNoBack ? <BackBtn /> : <div className="w-[30px] h-[30px]"></div>}
