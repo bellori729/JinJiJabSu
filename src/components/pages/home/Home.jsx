@@ -17,12 +17,23 @@ const Home = () => {
     return searchParams.get("page") ? searchParams.get("page") : 1
   }, [searchParams])
 
+  const SIGUN_NM = useMemo(() => {
+    return searchParams.get("nm") ? searchParams.get("nm") : ""
+  }, [searchParams])
+
+  const SIGUN_CD = useMemo(() => {
+    return searchParams.get("cd") ? searchParams.get("cd") : ""
+  }, [searchParams])
+
   const getList = async () => {
     const params = {
       KEY: API_KEY,
       Type: "json",
       pIndex: page,
       pSize: 10,
+
+      SIGUN_NM,
+      SIGUN_CD,
     }
 
     try {
@@ -55,14 +66,16 @@ const Home = () => {
   })
 
   return (
-    <BasicTemplate isNoBack={true}>
+    <BasicTemplate isNoBack={true} isNoSearch={true}>
       <MainContainer>
-        <Empty />
         <div>총 결과 {data?.totalCount || 0}</div>
         {isLoading ? (
           <LoadingSpinner className={"h-[240px]"} />
-        ) : isError ? null : (
+        ) : isError ? (
+          <Empty text="오류가 발생했습니다." />
+        ) : (
           <>
+            {data.list.length === 0 && <Empty />}
             <ul>
               {data.list.map((item, index) => (
                 <li key={index}>{item.FACLT_NM}</li>
@@ -70,7 +83,15 @@ const Home = () => {
             </ul>
           </>
         )}
-        <Pagination route={route.home} currentPage={page} totalPages={data?.totalPages || 1} rangeSize={5} />
+        <Pagination
+          route={route.home}
+          currentPage={page}
+          queryString={`${searchParams.get("nm") ? "&nm=" + searchParams.get("nm") : ""}${
+            searchParams.get("cd") ? "&cd=" + searchParams.get("cd") : ""
+          }`}
+          totalPages={data?.totalPages || 1}
+          rangeSize={5}
+        />
       </MainContainer>
     </BasicTemplate>
   )

@@ -2,9 +2,13 @@ import BasicTemplate from "../../templates/BasicTemplate"
 
 const Search = () => {
   return (
-    <BasicTemplate isNoBack={true} isNoSearch={true}>
-      <p>검색</p>
-    </BasicTemplate>
+    <BasicTemplate
+      isNoBack={true}
+      isNoLogo={true}
+      isSquareLogo={true}
+      isNoSearch={true}
+      headerText={"검색하기"}
+    ></BasicTemplate>
   )
 }
 
