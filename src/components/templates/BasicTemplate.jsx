@@ -10,7 +10,7 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
       {!noSkipLink && (
         <>
           <SkipLink id="main" />
-          <SkipLink id="navigation" text="네비게이션 바로가기" />
+          {/* <SkipLink id="navigation" text="네비게이션 바로가기" /> */}
         </>
       )}
       <Header
