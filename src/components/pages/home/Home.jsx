@@ -2,13 +2,35 @@ import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
 import MoveUpAnimation from "../../atoms/MoveUpAnimation"
 import MoveUpOrderAnimationText from "../../atoms/MoveUpOrderAnimationText"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import route from "../../../router/route"
 
 const Home = () => {
   const navigate = useNavigate()
+
+  const [imagesLoaded, setImagesLoaded] = useState(false)
+
+  const imageUrls = ["/assets/images/phone.png", "/assets/images/uijeongbu_sijang.png"]
+
+  // 이미지 미리 로드 함수
+  useEffect(() => {
+    const preloadImages = async () => {
+      const promises = imageUrls.map((src) => {
+        return new Promise((resolve) => {
+          const img = new Image()
+          img.src = src
+          img.onload = resolve // 이미지가 로드되면 resolve 호출
+        })
+      })
+
+      await Promise.all(promises)
+      setImagesLoaded(true) // 모든 이미지가 로드되면 상태 변경
+    }
+
+    preloadImages()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const [animationController, setAnimationController] = useState({
     first: false,
@@ -54,14 +76,16 @@ const Home = () => {
 
         {animationController.second && (
           <div className="flex justify-end my-[40px]">
-            <MoveUpAnimation
-              durationTime={0.8}
-              onAnimationComplete={() => {
-                setAnimationController({ ...animationController, third: true })
-              }}
-            >
-              <img className="w-[187px] h-[261px]" src="/assets/images/phone.png" alt="phone" />
-            </MoveUpAnimation>
+            {imagesLoaded && (
+              <MoveUpAnimation
+                durationTime={0.8}
+                onAnimationComplete={() => {
+                  setAnimationController({ ...animationController, third: true })
+                }}
+              >
+                <img className="w-[187px] h-[261px]" src={imageUrls[0]} alt="phone" />
+              </MoveUpAnimation>
+            )}
           </div>
         )}
 
@@ -90,7 +114,7 @@ const Home = () => {
         )}
       </MainContainer>
 
-      {animationController.fifth && (
+      {animationController.fifth && imagesLoaded && (
         <motion.div
           className="absolute w-full h-[490px] bottom-[135px]"
           initial={{ opacity: 0 }}
@@ -100,7 +124,7 @@ const Home = () => {
           {/* 이미지 페이드인 */}
           <img
             className="w-full h-full object-cover"
-            src="/assets/images/uijeongbu_sijang.png"
+            src={imageUrls[1]}
             alt="제33대 경기도 의정부시 김동근 시장이 어르신들에게 무료급식을 나눠주고 있습니다."
           />
 
