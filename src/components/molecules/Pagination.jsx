@@ -29,7 +29,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
   }, [totalPages, currentPage, rangeSize])
 
   return (
-    <div className="flex h-[30px] w-fit items-center gap-[8px] self-center">
+    <div className="flex h-[30px] w-full justify-center items-center gap-[8px] self-center mt-[50px]">
       <PaginationDoubleBtn
         className="cursor-pointer"
         isLeft={true}
