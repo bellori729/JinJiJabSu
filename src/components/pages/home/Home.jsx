@@ -53,7 +53,9 @@ const Home = () => {
             durationTime={0.8}
             delayTime={0.8}
             onAnimationComplete={() => {
-              setAnimationController({ ...animationController, first: true })
+              setAnimationController((prev) => {
+                return { ...prev, first: true }
+              })
             }}
           >
             진지잡수~
@@ -69,7 +71,9 @@ const Home = () => {
               경기도: "text-basic-green font-bold", // 초록색 + 굵게
             }}
             onAnimationComplete={() => {
-              setAnimationController({ ...animationController, second: true })
+              setAnimationController((prev) => {
+                return { ...prev, second: true }
+              })
             }}
           />
         )}
@@ -80,7 +84,9 @@ const Home = () => {
               <MoveUpAnimation
                 durationTime={0.8}
                 onAnimationComplete={() => {
-                  setAnimationController({ ...animationController, third: true })
+                  setAnimationController((prev) => {
+                    return { ...prev, third: true }
+                  })
                 }}
               >
                 <img className="w-[187px] h-[261px]" src={imageUrls[0]} alt="phone" />
@@ -95,7 +101,9 @@ const Home = () => {
             text="어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!"
             highlightWords={{}}
             onAnimationComplete={() => {
-              setAnimationController({ ...animationController, fourth: true })
+              setAnimationController((prev) => {
+                return { ...prev, fourth: true }
+              })
             }}
           />
         )}
@@ -107,7 +115,9 @@ const Home = () => {
               text="경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다."
               highlightWords={{}}
               onAnimationComplete={() => {
-                setAnimationController({ ...animationController, fifth: true })
+                setAnimationController((prev) => {
+                  return { ...prev, fifth: true }
+                })
               }}
             />
           </div>
