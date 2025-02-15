@@ -5,11 +5,12 @@ const route = {
 
   home: PREFIX,
   search: PREFIX + "search",
-  bookmark: PREFIX + "bookmark",
-  more: PREFIX + "more",
+  search_result: PREFIX + "search/result",
 
-  result: PREFIX + "result",
-  result_detail: PREFIX + "result/:id",
+  center_detail: PREFIX + "center", // 급식소 상세 페이지
+
+  // bookmark: PREFIX + "bookmark",
+  // more: PREFIX + "more",
 
   // ========== ETC ========== //
   ui: PREFIX + "ui",
