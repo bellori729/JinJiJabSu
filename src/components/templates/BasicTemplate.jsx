@@ -1,7 +1,8 @@
 import BodyContainer from "./BodyContainer"
 import SkipLink from "../atoms/SkipLink"
 import Header from "../organisms/Header"
-import Navigation from "../organisms/Navigation"
+// import Navigation from "../organisms/Navigation"
+import Footer from "../organisms/Footer"
 
 const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, headerText, noSkipLink, children }) => {
   return (
@@ -21,7 +22,8 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
         headerText={headerText}
       />
       {children}
-      <Navigation />
+      <Footer />
+      {/* <Navigation /> */}
     </BodyContainer>
   )
 }
