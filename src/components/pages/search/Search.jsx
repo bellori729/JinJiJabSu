@@ -81,7 +81,7 @@ const Search = () => {
   return (
     <BasicTemplate isNoBack={true} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
       <MainContainer>
-        <div className="w-full mb-[20px]">
+        <div className="w-full pl-[20px] my-[20px]">
           전체 <b>{totalCount || 0}개</b>
         </div>
         {isLoading ? (
@@ -94,7 +94,7 @@ const Search = () => {
               <col style={{ width: "70%" }} />
               <col style={{ width: "25%" }} />
             </colgroup>
-            <thead className="bg-gray-200 h-[50px]">
+            <thead className="bg-gray-200 h-[85px]">
               <tr>
                 <th>
                   시설정보
@@ -109,15 +109,15 @@ const Search = () => {
               {data.list.length === 0 && <Empty />}
 
               {data.list.map((item, index) => (
-                <tr key={index} className=" border-y-[1px] border-gray-300">
+                <tr key={index} className="border-y-[1px] border-gray-300">
                   <td>
                     <div
-                      className="w-[265px] h-[100px] flex flex-col justify-center cursor-pointer"
+                      className="pl-[20px] py-[20px] w-full min-h-[100px] h-fit flex flex-col justify-center cursor-pointer"
                       onClick={() => {
                         navigate(route.center_detail, { state: { item } })
                       }}
                     >
-                      <div className="truncate">{item.FACLT_NM}</div>
+                      <div className="">{item.FACLT_NM}</div>
                       <div className="small-font-size text-gray-500">{item.REFINE_ROADNM_ADDR}</div>
                     </div>
                   </td>
