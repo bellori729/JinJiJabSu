@@ -4,6 +4,7 @@ import Home from "../components/pages/home/Home"
 import UI from "../components/pages/etc/UI"
 import NotFound from "../components/pages/etc/NotFound"
 import Search from "../components/pages/search/Search"
+import SearchResult from "../components/pages/search/SearchResult"
 // import Bookmark from "../components/pages/bookmark/Bookmark"
 // import More from "../components/pages/more/More"
 
@@ -12,6 +13,7 @@ const Router = () => {
     <Routes>
       <Route path={route.home} element={<Home />} />
       <Route path={route.search} element={<Search />} />
+      <Route path={route.search_result} element={<SearchResult />} />
       {/* <Route path={route.bookmark} element={<Bookmark />} /> */}
       {/* <Route path={route.more} element={<More />} /> */}
 
