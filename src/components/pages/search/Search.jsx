@@ -21,7 +21,7 @@ const Search = () => {
           <h1 className="text-basic-black font-bold large-font-size">어르신께서 계신 지역은 어디인가요?</h1>
         </MoveUpAnimation>
 
-        <div className="w-full flex flex-wrap items-center justify-center gap-[30px] px-[20px]">
+        <div className="w-full flex flex-wrap items-center justify-center gap-[15px] px-[20px]">
           {Object.keys(siGunLogoPath).map((key) => {
             return (
               <MoveUpAnimation key={key} className="cursor-pointer" durationTime={0.8} delayTime={0}>
