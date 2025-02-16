@@ -47,7 +47,7 @@ const Home = () => {
 
   return (
     <BasicTemplate isNoBack={true}>
-      <MainContainer className={"h-fit min-h-[1663px]"}>
+      <MainContainer className={"!min-h-[1528px] md:!min-h-[2074px] lg:!min-h-[2530px]"}>
         <div className="flex flex-col my-[40px] px-[20px]">
           <MoveUpAnimation className="large-font-size font-bold" durationTime={0.8} delayTime={0}>
             어르신!
