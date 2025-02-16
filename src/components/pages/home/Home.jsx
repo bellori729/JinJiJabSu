@@ -96,21 +96,31 @@ const Home = () => {
         )}
 
         {animationController.third && (
-          <MoveUpOrderAnimationText
+          // <MoveUpOrderAnimationText
+          //   className="text-[#272829]"
+          //   text="어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!"
+          //   highlightWords={{}}
+          //   onAnimationComplete={() => {
+          //     setAnimationController((prev) => {
+          //       return { ...prev, fourth: true }
+          //     })
+          //   }}
+          // />
+          <MoveUpAnimation
             className="text-[#272829]"
-            text="어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!"
-            highlightWords={{}}
             onAnimationComplete={() => {
               setAnimationController((prev) => {
                 return { ...prev, fourth: true }
               })
             }}
-          />
+          >
+            어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!
+          </MoveUpAnimation>
         )}
 
         {animationController.fourth && (
-          <div className="flex justify-center mt-[20px]">
-            <MoveUpOrderAnimationText
+          <div className="flex mt-[20px]">
+            {/* <MoveUpOrderAnimationText
               className="text-[#272829]"
               text="경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다."
               highlightWords={{}}
@@ -119,7 +129,18 @@ const Home = () => {
                   return { ...prev, fifth: true }
                 })
               }}
-            />
+            /> */}
+
+            <MoveUpAnimation
+              className="text-[#272829]"
+              onAnimationComplete={() => {
+                setAnimationController((prev) => {
+                  return { ...prev, fifth: true }
+                })
+              }}
+            >
+              경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다.
+            </MoveUpAnimation>
           </div>
         )}
       </MainContainer>
@@ -128,7 +149,9 @@ const Home = () => {
         <motion.div
           className="absolute w-full h-[490px] bottom-[135px]"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          // animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }} // 화면에 보이면 나타나기
+          viewport={{ once: true, amount: 0.3 }} // 한 번만 애니메이션 (화면에 30% 들어오면 애니메이션)
           transition={{ duration: 1.0, ease: "easeOut" }}
         >
           {/* 이미지 페이드인 */}
@@ -138,7 +161,7 @@ const Home = () => {
             alt="제33대 경기도 의정부시 김동근 시장이 어르신들에게 무료급식을 나눠주고 있습니다."
           />
 
-          <div className="absolute top-0 left-0 w-full h-full pt-[171px] flex flex-col items-center gap-[45px] z-20">
+          <MoveUpAnimation className="absolute top-0 left-0 w-full h-full pt-[171px] flex flex-col items-center gap-[45px] z-20">
             <p className="text-[#272829] text-center large-font-size font-bold drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
               진지 거르시지 마시고
               <br />
@@ -162,7 +185,7 @@ const Home = () => {
             >
               무료급식소 찾기
             </motion.button>
-          </div>
+          </MoveUpAnimation>
 
           {/* 그라디언트 오버레이 */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F8F9FA] to-transparent z-10"></div>
