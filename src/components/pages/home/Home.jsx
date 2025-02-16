@@ -161,7 +161,7 @@ const Home = () => {
             alt="제33대 경기도 의정부시 김동근 시장이 어르신들에게 무료급식을 나눠주고 있습니다."
           />
 
-          <MoveUpAnimation className="absolute top-0 left-0 w-full h-full pt-[171px] flex flex-col items-center gap-[45px] z-20">
+          <MoveUpAnimation className="absolute top-0 left-0 w-full h-full pt-[171px] flex flex-col items-center gap-[45px] z-30">
             <p className="text-[#272829] text-center large-font-size font-bold drop-shadow-[0px_4px_4px_rgba(0,0,0,0.25)]">
               진지 거르시지 마시고
               <br />
@@ -188,7 +188,8 @@ const Home = () => {
           </MoveUpAnimation>
 
           {/* 그라디언트 오버레이 */}
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F8F9FA] to-transparent z-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#F8F9FA] to-transparent z-10" />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#0A82AE00] via-[#0A82AE4D] to-[#0A82AE99] z-20" />
         </motion.div>
       )}
     </BasicTemplate>
