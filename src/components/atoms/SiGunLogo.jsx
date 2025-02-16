@@ -1,6 +1,4 @@
 const SiGunLogo = ({ className, style, path, siGunName }) => {
-  console.log(path)
-
   return (
     <img
       className={className ? className : `w-[268px] h-[98px] rounded-[8px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}
