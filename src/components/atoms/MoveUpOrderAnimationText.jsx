@@ -8,7 +8,7 @@ const MoveUpOrderAnimationText = ({ className, text, highlightWords, onAnimation
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.2, duration: 0.6 },
+      transition: { delay: i * 0.1, duration: 0.6 },
     }),
   }
 
