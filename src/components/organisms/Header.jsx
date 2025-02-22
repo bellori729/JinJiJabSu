@@ -9,7 +9,6 @@ const Header = ({ isNone, isNoBack, isNoLogo, isSquareLogo, isNoSearch, headerTe
       {!isNone && (
         <>
           {!isNoBack ? <BackBtn /> : isNoBack && !isSquareLogo ? <div className="w-[30px] h-[30px]"></div> : null}
-          {isSquareLogo && <TextLogoSquare />}
           {!isNoLogo && <TextLogo />}
           {headerText && (
             <>
@@ -23,7 +22,8 @@ const Header = ({ isNone, isNoBack, isNoLogo, isSquareLogo, isNoSearch, headerTe
               </p>
             </>
           )}
-          {!isNoSearch ? <SearchBtn /> : <div className="w-[30px] h-[30px]"></div>}
+          {isSquareLogo && <TextLogoSquare />}
+          {!isNoSearch && <SearchBtn />}
         </>
       )}
     </header>
