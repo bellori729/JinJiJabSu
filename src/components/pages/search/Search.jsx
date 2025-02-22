@@ -11,7 +11,7 @@ const Search = () => {
   const navigate = useNavigate()
 
   return (
-    <BasicTemplate isNoBack={true} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
+    <BasicTemplate isNoBack={false} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
       <MainContainer>
         <MoveUpAnimation
           className="w-full px-[20px] flex justify-center mt-[40px] mb-[60px]"
