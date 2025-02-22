@@ -27,18 +27,16 @@ const SearchResult = () => {
             ) : (
               <table className="w-full">
                 <colgroup>
-                  <col style={{ width: "50%" }} />
-                  <col style={{ width: "30%" }} />
+                  <col style={{ width: "80%" }} />
                   <col style={{ width: "20%" }} />
                 </colgroup>
-                <thead className="bg-gray-200 h-[85px]">
+                <thead className="bg-gray-200 ">
                   <tr>
-                    <th>
+                    <th className="pl-[20px] py-[10px] text-left">
                       시설정보
                       <br />
-                      <span className="small-font-size text-gray-400">(제목을 클릭 시 상세 페이지로 이동)</span>
+                      <span className="small-font-size text-gray-400">제목을 클릭 시 상세 페이지로 이동</span>
                     </th>
-                    <th>일정</th>
                     <th>연락처</th>
                   </tr>
                 </thead>
@@ -48,27 +46,22 @@ const SearchResult = () => {
                     <tr key={index} className="border-y-[1px] border-gray-300">
                       <td>
                         <div
-                          className="pl-[20px] py-[20px] w-full min-h-[100px] h-fit flex flex-col justify-center cursor-pointer"
+                          className="p-[20px] w-full min-h-[100px] h-fit flex flex-col justify-center cursor-pointer"
                           onClick={() => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <div className="">{item?.FACLT_NM || ""}</div>
+                          <div className="font-[500]">{item?.FACLT_NM || ""}</div>
                           <div className="small-font-size text-gray-500">
                             {item?.REFINE_ROADNM_ADDR || item?.REFINE_LOTNO_ADDR || ""}
                           </div>
+                          <div className="small-font-size">{item?.RESTDAY_INFO || ""}</div>
+                          <div className="small-font-size">{item?.MEALSRV_TM_INFO || ""}</div>
                         </div>
                       </td>
 
                       <td>
-                        <div className="w-full min-h-[100px] h-fit flex flex-col justify-center">
-                          <div className="">{item?.RESTDAY_INFO || ""}</div>
-                          <div className="">{item?.MEALSRV_TM_INFO || ""}</div>
-                        </div>
-                      </td>
-
-                      <td>
-                        <div className="w-full h-[50px] flex items-center justify-center">
+                        <div className="p-[20px] w-full h-[50px] flex items-center justify-center">
                           <img
                             className="w-[24px] h-[24px] cursor-pointer"
                             src="/assets/icons/tel.png"
