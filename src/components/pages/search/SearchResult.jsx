@@ -1,83 +1,17 @@
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
-import { API_KEY, API_URL } from "../../../lib/api/apj"
 import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
 import Empty from "../../molecules/Empty"
-import { useMemo } from "react"
-import { useNavigate, useSearchParams } from "react-router-dom"
 import route from "../../../router/route"
 import Pagination from "../../molecules/Pagination"
 import LoadingSpinner from "../../atoms/LoadingSpinner"
-import usePaginationStore from "../../../lib/store/usePaginationStore"
+import useSearchResultController from "./controller/useSearchResultController"
 
 const SearchResult = () => {
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-
-  const { totalCount, totalPages, setPagination } = usePaginationStore()
-
-  const page = useMemo(() => {
-    return searchParams.get("page") ? searchParams.get("page") : 1
-  }, [searchParams])
-
-  const SIGUN_NM = useMemo(() => {
-    return searchParams.get("nm") ? searchParams.get("nm") : ""
-  }, [searchParams])
-
-  const SIGUN_CD = useMemo(() => {
-    return searchParams.get("cd") ? searchParams.get("cd") : ""
-  }, [searchParams])
-
-  const getList = async () => {
-    const params = {
-      KEY: API_KEY,
-      Type: "json",
-      pIndex: page,
-      pSize: 10,
-
-      SIGUN_NM,
-      SIGUN_CD,
-    }
-
-    try {
-      const response = await axios.get(API_URL, { params })
-      const data = response.data?.OdsnFreemlsvM
-
-      if (!data || !Array.isArray(data) || data.length < 2) {
-        throw new Error("올바른 응답 구조가 아닙니다.")
-      }
-
-      setPagination(data[0]?.head?.[0]?.list_total_count || 0)
-
-      const list = data[1]?.row || []
-
-      return {
-        list,
-      }
-    } catch (error) {
-      console.error("API 호출 중 오류 발생:", error)
-      return { list: [] }
-    }
-  }
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["list", page, SIGUN_NM, SIGUN_CD],
-    queryFn: getList,
-    staleTime: 0,
-    keepPreviousData: false,
-  })
-
-  const handleCall = (tel) => {
-    if (!tel) {
-      alert("연락처에 문제가 발생하였습니다.")
-    } else {
-      window.location.href = `tel:${tel}`
-    }
-  }
+  const { totalCount, totalPages, isLoading, isError, data, navigate, handleCall, searchParams, page } =
+    useSearchResultController()
 
   return (
-    <BasicTemplate isNoBack={true} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
+    <BasicTemplate isNoBack={false} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
       <MainContainer>
         <div className="w-full pl-[20px] my-[20px]">
           전체 <b>{totalCount || 0}개</b>
@@ -93,8 +27,9 @@ const SearchResult = () => {
             ) : (
               <table className="w-full">
                 <colgroup>
-                  <col style={{ width: "70%" }} />
-                  <col style={{ width: "25%" }} />
+                  <col style={{ width: "50%" }} />
+                  <col style={{ width: "30%" }} />
+                  <col style={{ width: "20%" }} />
                 </colgroup>
                 <thead className="bg-gray-200 h-[85px]">
                   <tr>
@@ -103,6 +38,7 @@ const SearchResult = () => {
                       <br />
                       <span className="small-font-size text-gray-400">(제목을 클릭 시 상세 페이지로 이동)</span>
                     </th>
+                    <th>일정</th>
                     <th>연락처</th>
                   </tr>
                 </thead>
@@ -117,10 +53,20 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <div className="">{item.FACLT_NM}</div>
-                          <div className="small-font-size text-gray-500">{item.REFINE_ROADNM_ADDR}</div>
+                          <div className="">{item?.FACLT_NM || ""}</div>
+                          <div className="small-font-size text-gray-500">
+                            {item?.REFINE_ROADNM_ADDR || item?.REFINE_LOTNO_ADDR || ""}
+                          </div>
                         </div>
                       </td>
+
+                      <td>
+                        <div className="w-full min-h-[100px] h-fit flex flex-col justify-center">
+                          <div className="">{item?.RESTDAY_INFO || ""}</div>
+                          <div className="">{item?.MEALSRV_TM_INFO || ""}</div>
+                        </div>
+                      </td>
+
                       <td>
                         <div className="w-full h-[50px] flex items-center justify-center">
                           <img
