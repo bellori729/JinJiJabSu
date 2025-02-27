@@ -5,10 +5,15 @@ import Empty from "../../../molecules/Empty"
 import route from "../../../../router/route"
 import Pagination from "../../../molecules/Pagination"
 import useSearchResultController from "../controller/useSearchResultController"
+import CallBtn from "../../../molecules/CallBtn"
 
 const SearchResult = () => {
   const { totalCount, totalPages, data, isLoading, isError, navigate, handleCall, searchParams, page } =
     useSearchResultController()
+
+  const styleMapping = {
+    infoSubText: "small-font-size text-gray-500",
+  }
 
   return (
     <BasicTemplate isNoBack={false} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
@@ -35,7 +40,7 @@ const SearchResult = () => {
                     <th className="pl-[20px] py-[10px] text-left">
                       시설정보
                       <br />
-                      <span className="small-font-size text-gray-400">제목을 클릭 시 상세 페이지로 이동</span>
+                      <span className="small-font-size text-gray-400">제목 클릭 시 상세 페이지 이동</span>
                     </th>
                     <th>연락처</th>
                   </tr>
@@ -51,24 +56,16 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <div className="font-[500]">{item?.FACLT_NM || ""}</div>
-                          <div className="small-font-size text-gray-500">
-                            {item?.REFINE_ROADNM_ADDR || item?.REFINE_LOTNO_ADDR || ""}
-                          </div>
-                          <div className="small-font-size">{item?.RESTDAY_INFO || ""}</div>
-                          <div className="small-font-size">{item?.MEALSRV_TM_INFO || ""}</div>
+                          <div className="font-[500]">{item?.FACLT_NM || "-"}</div>
+                          <p className={styleMapping.infoSubText}>{item?.MEALSRV_TARGET_INFO || "-"}</p>
+                          <p className={styleMapping.infoSubText}>{item?.RESTDAY_INFO || "-"}</p>
+                          <p className={styleMapping.infoSubText}>{item?.MEALSRV_TM_INFO || "-"}</p>
                         </div>
                       </td>
 
                       <td>
                         <div className="p-[20px] w-full h-[50px] flex items-center justify-center">
-                          <img
-                            className="w-[24px] h-[24px] cursor-pointer"
-                            src="/assets/icons/tel.png"
-                            alt="전화걸기"
-                            title="전화걸기"
-                            onClick={() => handleCall(item.MANAGE_INST_TELNO)}
-                          />
+                          <CallBtn onClick={() => handleCall(item.MANAGE_INST_TELNO)} />
                         </div>
                       </td>
                     </tr>
