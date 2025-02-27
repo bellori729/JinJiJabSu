@@ -11,8 +11,6 @@ import KakaoMap from "./_components/kakaoMap"
 const CenterDetail = () => {
   const { data, detailList, addressList, handleCall, handleCopy } = useCenterDetailController()
 
-  console.log(data)
-
   const styleMapping = {
     section: "w-full flex flex-col gap-[10px]",
     sectionTitle: `${mediumTextBold}`,
@@ -29,16 +27,13 @@ const CenterDetail = () => {
           <div className="flex flex-col gap-[20px] p-[20px] bg-white border-[1px] border-gray-200 rounded-[8px]">
             <section className="w-full flex items-center justify-between border-b-[1px] border-gray-200 pb-[10px]">
               <h1 className={largeTextBold}>{data?.FACLT_NM || ""}</h1>
-              <CallBtn
-                onClick={() => {
-                  if (!data?.MANAGE_INST_TELNO) {
-                    alert("전화번호가 없습니다.")
-                    return
-                  }
-
-                  handleCall(data?.MANAGE_INST_TELNO)
-                }}
-              />
+              {data?.MANAGE_INST_TELNO && (
+                <CallBtn
+                  onClick={() => {
+                    handleCall(data?.MANAGE_INST_TELNO)
+                  }}
+                />
+              )}
             </section>
             <section className={styleMapping.section}>
               <h2 className={styleMapping.sectionTitle}>상세</h2>
