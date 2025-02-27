@@ -96,27 +96,13 @@ const Home = () => {
                   })
                 }}
               >
-                <img
-                  className="w-[187px] h-[261px] md:w-[374px] md:h-[522px] lg:w-[561px] lg:h-[783px]"
-                  src={imageUrls[0]}
-                  alt="phone"
-                />
+                <img className="w-[187px] h-[261px] md:w-[374px] md:h-[522px]" src={imageUrls[0]} alt="phone" />
               </MoveUpAnimation>
             )}
           </div>
         )}
 
         {animationController.third && (
-          // <MoveUpOrderAnimationText
-          //   className="text-[#272829]"
-          //   text="어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!"
-          //   highlightWords={{}}
-          //   onAnimationComplete={() => {
-          //     setAnimationController((prev) => {
-          //       return { ...prev, fourth: true }
-          //     })
-          //   }}
-          // />
           <MoveUpAnimation
             className="text-[#272829] px-[20px]"
             onAnimationComplete={() => {
@@ -148,17 +134,6 @@ const Home = () => {
 
         {animationController.fifth && (
           <div className="flex mt-[40px]">
-            {/* <MoveUpOrderAnimationText
-              className="text-[#272829]"
-              text="경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다."
-              highlightWords={{}}
-              onAnimationComplete={() => {
-                setAnimationController((prev) => {
-                  return { ...prev, fifth: true }
-                })
-              }}
-            /> */}
-
             <MoveUpAnimation
               className="text-[#272829] px-[20px]"
               onAnimationComplete={() => {
