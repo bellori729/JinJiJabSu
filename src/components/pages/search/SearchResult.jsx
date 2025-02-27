@@ -7,7 +7,7 @@ import LoadingSpinner from "../../atoms/LoadingSpinner"
 import useSearchResultController from "./controller/useSearchResultController"
 
 const SearchResult = () => {
-  const { totalCount, totalPages, isLoading, isError, data, navigate, handleCall, searchParams, page } =
+  const { totalCount, totalPages, data, isLoading, isError, navigate, handleCall, searchParams, page } =
     useSearchResultController()
 
   return (
@@ -22,7 +22,7 @@ const SearchResult = () => {
           <Empty text="오류가 발생했습니다." />
         ) : (
           <>
-            {data.list.length === 0 ? (
+            {data?.list.length === 0 ? (
               <Empty />
             ) : (
               <table className="w-full">
@@ -42,7 +42,7 @@ const SearchResult = () => {
                 </thead>
 
                 <tbody className="">
-                  {data.list.map((item, index) => (
+                  {data?.list.map((item, index) => (
                     <tr key={index} className="border-y-[1px] border-gray-300">
                       <td>
                         <div
