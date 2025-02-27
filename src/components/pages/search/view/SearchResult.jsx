@@ -22,7 +22,7 @@ const SearchResult = () => {
           전체 <b>{totalCount || 0}개</b>
         </div>
         {isLoading ? (
-          <LoadingSpinner className={"h-[1060px]"} />
+          <LoadingSpinner className={"h-[252px]"} />
         ) : isError ? (
           <Empty text="오류가 발생했습니다." />
         ) : (
@@ -56,7 +56,7 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <div className="font-[500]">{item?.FACLT_NM || "-"}</div>
+                          <p className="font-[500]">{item?.FACLT_NM || "-"}</p>
                           <p className={styleMapping.infoSubText}>{item?.MEALSRV_TARGET_INFO || "-"}</p>
                           <p className={styleMapping.infoSubText}>{item?.RESTDAY_INFO || "-"}</p>
                           <p className={styleMapping.infoSubText}>{item?.MEALSRV_TM_INFO || "-"}</p>
@@ -65,7 +65,11 @@ const SearchResult = () => {
 
                       <td>
                         <div className="p-[20px] w-full h-[50px] flex items-center justify-center">
-                          <CallBtn onClick={() => handleCall(item.MANAGE_INST_TELNO)} />
+                          {item?.MANAGE_INST_TELNO ? (
+                            <CallBtn onClick={() => handleCall(item.MANAGE_INST_TELNO)} />
+                          ) : (
+                            <p className="font-[500]">-</p>
+                          )}
                         </div>
                       </td>
                     </tr>
@@ -73,17 +77,18 @@ const SearchResult = () => {
                 </tbody>
               </table>
             )}
+
+            <Pagination
+              route={route.search_result}
+              currentPage={page}
+              queryString={`${searchParams.get("nm") ? "&nm=" + searchParams.get("nm") : ""}${
+                searchParams.get("cd") ? "&cd=" + searchParams.get("cd") : ""
+              }`}
+              totalPages={totalPages || 1}
+              rangeSize={5}
+            />
           </>
         )}
-        <Pagination
-          route={route.search_result}
-          currentPage={page}
-          queryString={`${searchParams.get("nm") ? "&nm=" + searchParams.get("nm") : ""}${
-            searchParams.get("cd") ? "&cd=" + searchParams.get("cd") : ""
-          }`}
-          totalPages={totalPages || 1}
-          rangeSize={5}
-        />
       </MainContainer>
     </BasicTemplate>
   )
