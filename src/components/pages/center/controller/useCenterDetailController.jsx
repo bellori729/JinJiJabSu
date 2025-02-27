@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import route from "../../../../router/route"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import axios from "axios"
 import { KAKAO_MAP_REST_API_KEY } from "../../../../lib/api/apj"
 
@@ -19,13 +19,39 @@ const useCenterDetailController = () => {
     }
   }, [state]) // eslint-disable-line
 
-  // ===== 지도 API 호출 ===== //
+  const detailList = useMemo(
+    () => [
+      { title: "관리기관명", content: data?.MANAGE_INST_NM || "-" },
+      { title: "관리기관 전화번호", content: data?.MANAGE_INST_TELNO || "-" },
+      { title: "급식장소", content: data?.MEALSRV_PLC || "-" },
+      { title: "급식대상", content: data?.MEALSRV_TARGET_INFO || "-" },
+      { title: "급식일", content: data?.RESTDAY_INFO || "-" },
+      { title: "급식시간", content: data?.MEALSRV_TM_INFO || "-" },
+    ],
+    [data],
+  )
+
+  // ===== 위치 관련 ===== //
+  // 주소 정보
+  const addressList = useMemo(
+    () => [
+      { title: "도로명 주소", content: data?.REFINE_ROADNM_ADDR || "-" },
+      { title: "지번 주소", content: data?.REFINE_LOTNO_ADDR || "-" },
+    ],
+    [data],
+  )
+
+  // 주소 복사하기
+  const handleCopy = (address) => {
+    navigator.clipboard.writeText(address)
+    alert("주소가 복사되었습니다.")
+  }
+
+  // 지도 API 호출
   const kakaoMap = async () => {
     const addressData = {
       query: data?.REFINE_ROADNM_ADDR || data?.REFINE_LOTNO_ADDR || "",
     }
-
-    console.log("addressData", addressData)
 
     const addressResponse = await axios.get(`https://dapi.kakao.com/v2/local/search/address.json`, {
       headers: {
@@ -59,8 +85,21 @@ const useCenterDetailController = () => {
     }
   }, [data]) // eslint-disable-line
 
+  // ===== 전화 걸기 ===== //
+  const handleCall = (tel) => {
+    if (!tel) {
+      alert("연락처에 문제가 발생하였습니다.")
+    } else {
+      window.location.href = `tel:${tel}`
+    }
+  }
+
   return {
     data,
+    detailList,
+    addressList,
+    handleCall,
+    handleCopy,
   }
 }
 export default useCenterDetailController
