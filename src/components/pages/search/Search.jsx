@@ -5,10 +5,10 @@ import MoveUpAnimation from "../../atoms/MoveUpAnimation"
 import SiGunLogo from "../../atoms/SiGunLogo"
 import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
-import { useNavigate } from "react-router-dom"
+import useSearchController from "./controller/useSearchController"
 
 const Search = () => {
-  const navigate = useNavigate()
+  const { navigate } = useSearchController()
 
   return (
     <BasicTemplate isNoBack={false} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
