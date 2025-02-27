@@ -6,7 +6,7 @@ import CopyBtn from "../../../molecules/CopyBtn"
 import BasicTemplate from "../../../templates/BasicTemplate"
 import MainContainer from "../../../templates/MainContainer"
 import useCenterDetailController from "../controller/useCenterDetailController"
-import KakaoMap from "./_components/kakaoMap"
+import KakaoMap from "./_components/KakaoMap"
 
 const CenterDetail = () => {
   const { data, detailList, addressList, handleCall, handleCopy } = useCenterDetailController()
