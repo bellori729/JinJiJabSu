@@ -1,9 +1,10 @@
 import { useNavigate, useSearchParams } from "react-router-dom"
 import usePaginationStore from "../../../../lib/store/usePaginationStore"
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { API_KEY, API_URL } from "../../../../lib/api/apj"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
+import { minToMs } from "../../../../lib/utils/\bmsConverter"
 
 const useSearchResultController = () => {
   const navigate = useNavigate()
@@ -42,27 +43,33 @@ const useSearchResultController = () => {
         throw new Error("올바른 응답 구조가 아닙니다.")
       }
 
-      setPagination(data[0]?.head?.[0]?.list_total_count || 0)
-
-      const list = data[1]?.row || []
-
-      console.log("list", list)
-
-      return {
-        list,
+      const returnData = {
+        totalCount: data[0]?.head?.[0]?.list_total_count || 0,
+        list: data[1]?.row || [],
       }
+
+      return returnData
     } catch (error) {
       console.error("API 호출 중 오류 발생:", error)
-      return { list: [] }
+      return {
+        totalCount: 0,
+        list: [],
+      }
     }
   }
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["list", page, SIGUN_NM, SIGUN_CD],
     queryFn: getList,
-    staleTime: 0,
+    queryKey: ["getList", SIGUN_NM, SIGUN_CD, page],
+    staleTime: minToMs(15),
     keepPreviousData: false,
   })
+
+  useEffect(() => {
+    if (data?.totalCount > 0) {
+      setPagination(data.totalCount)
+    }
+  }, [data?.totalCount]) // eslint-disable-line
 
   const handleCall = (tel) => {
     if (!tel) {
