@@ -4,7 +4,7 @@ import { useEffect, useMemo } from "react"
 import { API_KEY, API_URL } from "../../../../lib/api/apj"
 import axios from "axios"
 import { useQuery } from "@tanstack/react-query"
-import { minToMs } from "../../../../lib/utils/\bmsConverter"
+import { minToMs } from "../../../../lib/utils/msConverter"
 
 const useSearchResultController = () => {
   const navigate = useNavigate()
