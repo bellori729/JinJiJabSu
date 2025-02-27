@@ -3,11 +3,11 @@ import route from "./route"
 import Home from "../components/pages/home/Home"
 import UI from "../components/pages/etc/UI"
 import NotFound from "../components/pages/etc/NotFound"
-import Search from "../components/pages/search/Search"
-import SearchResult from "../components/pages/search/SearchResult"
+import Search from "../components/pages/search/view/Search"
+import SearchResult from "../components/pages/search/view/SearchResult"
+import CenterDetail from "../components/pages/center/view/CenterDetail"
 // import Bookmark from "../components/pages/bookmark/Bookmark"
 // import More from "../components/pages/more/More"
-import CenterDetail from "../components/pages/center/view/CenterDetail"
 
 const Router = () => {
   return (

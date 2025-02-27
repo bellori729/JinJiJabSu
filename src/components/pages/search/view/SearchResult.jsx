@@ -1,10 +1,10 @@
-import BasicTemplate from "../../templates/BasicTemplate"
-import MainContainer from "../../templates/MainContainer"
-import Empty from "../../molecules/Empty"
-import route from "../../../router/route"
-import Pagination from "../../molecules/Pagination"
-import LoadingSpinner from "../../atoms/LoadingSpinner"
-import useSearchResultController from "./controller/useSearchResultController"
+import BasicTemplate from "../../../templates/BasicTemplate"
+import MainContainer from "../../../templates/MainContainer"
+import LoadingSpinner from "../../../atoms/LoadingSpinner"
+import Empty from "../../../molecules/Empty"
+import route from "../../../../router/route"
+import Pagination from "../../../molecules/Pagination"
+import useSearchResultController from "../controller/useSearchResultController"
 
 const SearchResult = () => {
   const { totalCount, totalPages, data, isLoading, isError, navigate, handleCall, searchParams, page } =

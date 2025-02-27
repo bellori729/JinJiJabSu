@@ -1,11 +1,11 @@
-import siGunCode from "../../../lib/constants/siGunCode"
-import siGunLogoPath from "../../../lib/constants/siGunLogoPath"
-import route from "../../../router/route"
-import MoveUpAnimation from "../../atoms/MoveUpAnimation"
-import SiGunLogo from "../../atoms/SiGunLogo"
-import BasicTemplate from "../../templates/BasicTemplate"
-import MainContainer from "../../templates/MainContainer"
-import useSearchController from "./controller/useSearchController"
+import siGunLogoPath from "../../../../lib/constants/siGunLogoPath"
+import route from "../../../../router/route"
+import MoveUpAnimation from "../../../atoms/MoveUpAnimation"
+import BasicTemplate from "../../../templates/BasicTemplate"
+import MainContainer from "../../../templates/MainContainer"
+import siGunCode from "../../../../lib/constants/siGunCode"
+import SiGunLogo from "../../../atoms/SiGunLogo"
+import useSearchController from "../controller/useSearchController"
 
 const Search = () => {
   const { navigate } = useSearchController()
