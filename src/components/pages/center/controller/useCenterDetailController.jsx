@@ -48,35 +48,45 @@ const useCenterDetailController = () => {
   }
 
   // 지도 API 호출
+  const [isMapLoaded, setIsMapLoaded] = useState(true)
+
   const kakaoMap = async () => {
     const addressData = {
       query: data?.REFINE_ROADNM_ADDR || data?.REFINE_LOTNO_ADDR || "",
     }
 
-    const addressResponse = await axios.get(`https://dapi.kakao.com/v2/local/search/address.json`, {
-      headers: {
-        Authorization: `KakaoAK ${KAKAO_MAP_REST_API_KEY}`,
-      },
-      params: addressData,
-    })
+    console.log(addressData)
 
-    const container = document.getElementById("map")
-    const options = {
-      center: new window.kakao.maps.LatLng(addressResponse.data.documents[0].y, addressResponse.data.documents[0].x),
-      level: 3,
+    try {
+      const addressResponse = await axios.get(`https://dapi.kakao.com/v2/local/search/address.json`, {
+        headers: {
+          Authorization: `KakaoAK ${KAKAO_MAP_REST_API_KEY}`,
+        },
+        params: addressData,
+      })
+
+      const container = document.getElementById("map")
+      const options = {
+        center: new window.kakao.maps.LatLng(addressResponse.data.documents[0].y, addressResponse.data.documents[0].x),
+        level: 3,
+      }
+      const map = new window.kakao.maps.Map(container, options)
+
+      const markerPosition = new window.kakao.maps.LatLng(
+        addressResponse.data.documents[0].y,
+        addressResponse.data.documents[0].x,
+      )
+
+      const marker = new window.kakao.maps.Marker({
+        position: markerPosition,
+      })
+
+      marker.setMap(map)
+      setIsMapLoaded(true)
+    } catch (error) {
+      console.error(error)
+      setIsMapLoaded(false)
     }
-    const map = new window.kakao.maps.Map(container, options)
-
-    const markerPosition = new window.kakao.maps.LatLng(
-      addressResponse.data.documents[0].y,
-      addressResponse.data.documents[0].x,
-    )
-
-    const marker = new window.kakao.maps.Marker({
-      position: markerPosition,
-    })
-
-    marker.setMap(map)
   }
 
   useEffect(() => {
@@ -100,6 +110,7 @@ const useCenterDetailController = () => {
     addressList,
     handleCall,
     handleCopy,
+    isMapLoaded,
   }
 }
 export default useCenterDetailController

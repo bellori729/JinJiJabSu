@@ -3,13 +3,14 @@ import { largeTextBold } from "../../../../lib/constants/style/largeText"
 import { mediumTextBold } from "../../../../lib/constants/style/mediumText"
 import CallBtn from "../../../molecules/CallBtn"
 import CopyBtn from "../../../molecules/CopyBtn"
+import Empty from "../../../molecules/Empty"
 import BasicTemplate from "../../../templates/BasicTemplate"
 import MainContainer from "../../../templates/MainContainer"
 import useCenterDetailController from "../controller/useCenterDetailController"
 import KakaoMap from "./_components/KakaoMap"
 
 const CenterDetail = () => {
-  const { data, detailList, addressList, handleCall, handleCopy } = useCenterDetailController()
+  const { data, detailList, addressList, handleCall, handleCopy, isMapLoaded } = useCenterDetailController()
 
   const styleMapping = {
     section: "w-full flex flex-col gap-[10px]",
@@ -26,7 +27,7 @@ const CenterDetail = () => {
         <div className="w-[100%] px-[20px]">
           <div className="flex flex-col gap-[20px] p-[20px] bg-white border-[1px] border-gray-200 rounded-[8px]">
             <section className="w-full flex items-center justify-between border-b-[1px] border-gray-200 pb-[10px]">
-              <h1 className={largeTextBold}>{data?.FACLT_NM || ""}</h1>
+              <h1 className={`${largeTextBold} max-w-[calc(100%-40px)]`}>{data?.FACLT_NM || ""}</h1>
               {data?.MANAGE_INST_TELNO && (
                 <CallBtn
                   onClick={() => {
@@ -63,7 +64,7 @@ const CenterDetail = () => {
                   </li>
                 ))}
               </ul>
-              <KakaoMap />
+              {isMapLoaded ? <KakaoMap /> : <Empty className="!h-[500px]" text="지도를 불러오는 데 실패했습니다." />}
             </section>
           </div>
         </div>
