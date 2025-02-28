@@ -57,8 +57,10 @@ const SearchResult = () => {
                           }}
                         >
                           <p className="font-[500]">{item?.FACLT_NM || "-"}</p>
-                          <p className={styleMapping.infoSubText}>{item?.MEALSRV_TARGET_INFO || "-"}</p>
-                          <p className={styleMapping.infoSubText}>{item?.RESTDAY_INFO || "-"}</p>
+                          <p className={styleMapping.infoSubText}>
+                            {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ") || "-"}
+                          </p>
+                          <p className={styleMapping.infoSubText}>{item?.RESTDAY_INFO.replaceAll("+", ", ") || "-"}</p>
                           <p className={styleMapping.infoSubText}>{item?.MEALSRV_TM_INFO || "-"}</p>
                         </div>
                       </td>
