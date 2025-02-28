@@ -56,6 +56,8 @@ const CenterDetail = () => {
                       <p className={`${styleMapping.detailTitle} w-fit`}>{item.title}</p>
                       <CopyBtn
                         onClick={() => {
+                          if (!item.copy) return alert(item.content)
+
                           handleCopy(item.content)
                         }}
                       />

@@ -21,12 +21,15 @@ const useCenterDetailController = () => {
 
   const detailList = useMemo(
     () => [
-      { title: "관리기관명", content: data?.MANAGE_INST_NM || "-" },
-      { title: "관리기관 전화번호", content: data?.MANAGE_INST_TELNO || "-" },
-      { title: "급식장소", content: data?.MEALSRV_PLC || "-" },
-      { title: "급식대상", content: data?.MEALSRV_TARGET_INFO || "-" },
-      { title: "급식일", content: data?.RESTDAY_INFO || "-" },
-      { title: "급식시간", content: data?.MEALSRV_TM_INFO || "-" },
+      { title: "관리기관명", content: data?.MANAGE_INST_NM || "해당 시설의 관리기관명이 등록되어 있지 않습니다." },
+      {
+        title: "관리기관 전화번호",
+        content: data?.MANAGE_INST_TELNO || "해당 시설의 관리기관 전화번호가 등록되어 있지 않습니다.",
+      },
+      { title: "급식장소", content: data?.MEALSRV_PLC || "해당 시설의 급식장소가 등록되어 있지 않습니다." },
+      { title: "급식대상", content: data?.MEALSRV_TARGET_INFO || "해당 시설의 급식대상이 등록되어 있지 않습니다." },
+      { title: "급식일", content: data?.RESTDAY_INFO || "해당 시설의 급식일이 등록되어 있지 않습니다." },
+      { title: "급식시간", content: data?.MEALSRV_TM_INFO || "해당 시설의 급식시간이 등록되어 있지 않습니다." },
     ],
     [data],
   )
@@ -35,8 +38,16 @@ const useCenterDetailController = () => {
   // 주소 정보
   const addressList = useMemo(
     () => [
-      { title: "도로명 주소", content: data?.REFINE_ROADNM_ADDR || "-" },
-      { title: "지번 주소", content: data?.REFINE_LOTNO_ADDR || "-" },
+      {
+        title: "도로명 주소",
+        content: data?.REFINE_ROADNM_ADDR || "해당 시설의 도로명 주소가 등록되어 있지 않습니다.",
+        copy: data?.REFINE_ROADNM_ADDR ? true : false,
+      },
+      {
+        title: "지번 주소",
+        content: data?.REFINE_LOTNO_ADDR || "해당 시설의 지번 주소가 등록되어 있지 않습니다.",
+        copy: data?.REFINE_LOTNO_ADDR ? true : false,
+      },
     ],
     [data],
   )
