@@ -75,11 +75,7 @@ const Home = () => {
         </MoveUpAnimation>
 
         {imagesLoaded && (
-          <MoveUpAnimation
-            className="w-full h-auto flex justify-center mt-[40px] px-[20px]"
-            delayTime={0.6}
-            amountRatio={0.3}
-          >
+          <MoveUpAnimation className="w-full h-auto flex justify-center mt-[40px] px-[20px]" amountRatio={0.3}>
             <img
               className="w-[320px] h-[285px] md:w-[640px] md:h-[570px] lg:w-[960px] lg:h-[855px]"
               src={imageUrls[1]}
@@ -88,7 +84,12 @@ const Home = () => {
           </MoveUpAnimation>
         )}
 
-        <MoveUpAnimation className="text-[#272829] my-[40px] px-[20px]" delayTime={0.6} amountRatio={1}>
+        <MoveUpAnimation
+          className="text-[#272829] my-[40px] px-[20px]"
+          delayTime={0.3}
+          durationTime={0.6}
+          amountRatio={1}
+        >
           경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다.
         </MoveUpAnimation>
 
