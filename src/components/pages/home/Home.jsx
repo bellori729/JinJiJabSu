@@ -1,7 +1,7 @@
 import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
 import MoveUpAnimation from "../../atoms/MoveUpAnimation"
-import MoveUpOrderAnimationText from "../../atoms/MoveUpOrderAnimationText"
+// import MoveUpOrderAnimationText from "../../atoms/MoveUpOrderAnimationText"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
@@ -40,15 +40,17 @@ const Home = () => {
     <BasicTemplate isNoBack={true}>
       <MainContainer className={"!min-h-[1528px] md:!min-h-[2074px] lg:!min-h-[2330px]"}>
         <div className="flex flex-col my-[40px] px-[20px]">
-          <MoveUpAnimation className="large-font-size font-bold" durationTime={0.8}>
-            어르신!
-          </MoveUpAnimation>
-          <MoveUpAnimation className="large-font-size font-bold" durationTime={0.8} delayTime={0.8}>
-            진지잡수~
+          <MoveUpAnimation className="large-font-size font-bold" delayTime={0.3} durationTime={0.6} amountRatio={1}>
+            어르신! 진지잡수~
           </MoveUpAnimation>
         </div>
 
-        <div className="px-[20px]">
+        <MoveUpAnimation className="px-[20px]" delayTime={0.3} durationTime={0.6} amountRatio={1}>
+          <span className="text-basic-blue font-bold">진지잡수</span>는{" "}
+          <span className="text-basic-green font-bold">경기도</span> 내 어르신을 대상으로 하는 무료급식소 현황을 확인할
+          수 있는 서비스입니다.
+        </MoveUpAnimation>
+        {/* <div >
           <MoveUpOrderAnimationText
             className="text-[#272829]"
             delayTime={1.6}
@@ -58,22 +60,26 @@ const Home = () => {
               경기도: "text-basic-green font-bold", // 초록색 + 굵게
             }}
           />
-        </div>
+        </div> */}
 
         <div className="flex justify-end my-[40px] px-[20px]">
           {imagesLoaded && (
-            <MoveUpAnimation delayTime={0.3} durationTime={0.8} amountRatio={1}>
+            <MoveUpAnimation delayTime={0.3} durationTime={0.6} amountRatio={1}>
               <img className="w-[187px] h-[261px] md:w-[374px] md:h-[522px]" src={imageUrls[0]} alt="phone" />
             </MoveUpAnimation>
           )}
         </div>
 
-        <MoveUpAnimation className="text-[#272829] px-[20px]" amountRatio={1}>
+        <MoveUpAnimation className="text-[#272829] px-[20px]" delayTime={0.6} amountRatio={1}>
           어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!
         </MoveUpAnimation>
 
         {imagesLoaded && (
-          <MoveUpAnimation className="w-full h-auto flex justify-center mt-[40px] px-[20px]" amountRatio={1}>
+          <MoveUpAnimation
+            className="w-full h-auto flex justify-center mt-[40px] px-[20px]"
+            delayTime={0.6}
+            amountRatio={0.3}
+          >
             <img
               className="w-[320px] h-[285px] md:w-[640px] md:h-[570px] lg:w-[960px] lg:h-[855px]"
               src={imageUrls[1]}
@@ -82,18 +88,17 @@ const Home = () => {
           </MoveUpAnimation>
         )}
 
-        <div className="flex my-[40px]">
-          <MoveUpAnimation className="text-[#272829] px-[20px]" amountRatio={1}>
-            경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다.
-          </MoveUpAnimation>
-        </div>
+        <MoveUpAnimation className="text-[#272829] my-[40px] px-[20px]" delayTime={0.6} amountRatio={1}>
+          경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다.
+        </MoveUpAnimation>
+
         {imagesLoaded && (
           <motion.div
             className="w-full h-[490px] relative"
             initial={{ opacity: 0 }}
             // animate={{ opacity: 1 }}
             whileInView={{ opacity: 1 }} // 화면에 보이면 나타나기
-            transition={{ duration: 1.0, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* 이미지 페이드인 */}
             <img
