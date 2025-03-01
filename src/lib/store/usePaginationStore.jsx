@@ -6,7 +6,7 @@ const usePaginationStore = create((set) => ({
   setPagination: (totalCount) =>
     set(() => ({
       totalCount,
-      totalPages: Math.ceil(totalCount / 10),
+      totalPages: Math.ceil(totalCount / 5),
     })),
 }))
 
