@@ -1,4 +1,4 @@
-const SiGunLogo = ({ className, style, path, siGunName }) => {
+const SiGunLogo = ({ className, style, path, siGunName, alt = "" }) => {
   return (
     <img
       className={
@@ -8,7 +8,7 @@ const SiGunLogo = ({ className, style, path, siGunName }) => {
       }
       style={style}
       src={path}
-      alt={siGunName}
+      alt={alt || siGunName}
       title={siGunName}
     >
       {siGunName}

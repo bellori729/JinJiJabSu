@@ -29,7 +29,7 @@ const Search = () => {
                   title={`클릭하시면 ${key} 지역의 어르신을 위한 시설을 검색할 수 있습니다.`}
                   onClick={() => navigate(`${route.search_result}?cd=${siGunCode[key]}`)}
                 >
-                  <SiGunLogo path={siGunLogoPath[key]} alt={key} />
+                  <SiGunLogo path={siGunLogoPath[key]} alt={`${key} 로고`} />
                 </button>
               </MoveUpAnimation>
             )
