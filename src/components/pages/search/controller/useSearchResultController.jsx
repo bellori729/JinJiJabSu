@@ -29,7 +29,7 @@ const useSearchResultController = () => {
       KEY: API_KEY,
       Type: "json",
       pIndex: page,
-      pSize: 10,
+      pSize: 5,
 
       SIGUN_NM,
       SIGUN_CD,
