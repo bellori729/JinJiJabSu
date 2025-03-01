@@ -56,7 +56,7 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <p className="font-[500]">{item?.FACLT_NM || "-"}</p>
+                          <button className="font-[500] self-start">{item?.FACLT_NM || "-"}</button>
                           <p className={styleMapping.infoSubText}>
                             {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ") || "-"}
                           </p>
@@ -70,7 +70,7 @@ const SearchResult = () => {
                           {item?.MANAGE_INST_TELNO ? (
                             <CallBtn onClick={() => handleCall(item.MANAGE_INST_TELNO)} />
                           ) : (
-                            <p className="font-[500]">-</p>
+                            <span className="font-[500]">-</span>
                           )}
                         </div>
                       </td>
