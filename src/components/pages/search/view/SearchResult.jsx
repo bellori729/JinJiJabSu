@@ -40,7 +40,7 @@ const SearchResult = () => {
                     <th className="pl-[20px] py-[10px] text-left">
                       시설정보
                       <br />
-                      <span className="small-font-size text-gray-400">제목 클릭 시 상세 페이지 이동</span>
+                      <span className="small-font-size text-gray-700">제목 클릭 시 상세 페이지 이동</span>
                     </th>
                     <th>연락처</th>
                   </tr>
