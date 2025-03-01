@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 
-const MoveUpOrderAnimationText = ({ className, text, highlightWords, onAnimationComplete }) => {
+const MoveUpOrderAnimationText = ({ className, text, highlightWords, onAnimationComplete, delayTime = 0 }) => {
   const words = text.split(" ") // 단어 단위로 나누기
 
   const textVariants = {
@@ -8,7 +8,7 @@ const MoveUpOrderAnimationText = ({ className, text, highlightWords, onAnimation
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.1, duration: 0.6 },
+      transition: { delay: delayTime + i * 0.1, duration: 0.6 },
     }),
   }
 
