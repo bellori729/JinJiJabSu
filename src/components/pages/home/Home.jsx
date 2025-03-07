@@ -49,7 +49,7 @@ const Home = () => {
 
             <div className="flex justify-end my-[40px] px-[20px]">
               <MoveUpAnimation durationTime={0.6}>
-                <img className="w-[187px] h-[261px] md:w-[374px] md:h-[522px]" src={imageUrls[0]} alt="phone" />
+                <img className="w-[187px] h-[261px] md:w-[374px] md:h-[522px]" src={imageUrls[0]} alt="" />
               </MoveUpAnimation>
             </div>
 
@@ -61,7 +61,7 @@ const Home = () => {
               <img
                 className="w-[320px] h-[285px] md:w-[640px] md:h-[570px] lg:w-[960px] lg:h-[855px]"
                 src={imageUrls[1]}
-                alt="경기도 산하 시군구가 모여있는 그룹 이미지"
+                alt="경기도 산하 시군구 별 로고"
               />
             </MoveUpAnimation>
 
