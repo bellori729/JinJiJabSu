@@ -15,7 +15,7 @@ const CenterDetail = () => {
   const styleMapping = {
     section: "w-full flex flex-col gap-[10px]",
     sectionTitle: `${mediumTextBold}`,
-    ul: "w-full flex flex-col gap-[10px]",
+    ul: "w-full flex flex-col gap-[20px]",
     list: "w-full flex flex-col",
     detailTitle: `${basicTextBold} w-[130px]`,
     detailContent: `${basicTextBold} text-gray-500 break-words`,
@@ -38,7 +38,7 @@ const CenterDetail = () => {
             </section>
             <section className={styleMapping.section}>
               <h2 className={styleMapping.sectionTitle}>상세</h2>
-              <ul className={`${styleMapping.ul} border-b-[1px] border-gray-200 pb-[10px]`}>
+              <ul className={`${styleMapping.ul} border-b-[1px] border-gray-200 pb-[20px]`}>
                 {detailList.map((item, index) => (
                   <li key={index} className={styleMapping.list}>
                     <p className={styleMapping.detailTitle}>{item.title}</p>
