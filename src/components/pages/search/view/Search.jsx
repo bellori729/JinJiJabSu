@@ -9,8 +9,11 @@ import useSearchController from "../controller/useSearchController"
 import useImagePreloader from "../../../../lib/hooks/useImagePreloader"
 import LoadingSpinner from "../../../atoms/LoadingSpinner"
 import { useMemo } from "react"
+import useBigFontSizeStore from "../../../../lib/store/useBigFontSizeStore"
 
 const Search = () => {
+  const { bigFontSize } = useBigFontSizeStore()
+
   const { navigate } = useSearchController()
 
   const imageUrls = useMemo(() => Object.values(siGunLogoPath), [])
@@ -27,7 +30,9 @@ const Search = () => {
               durationTime={0.8}
               delayTime={0}
             >
-              <h1 className="text-basic-black font-bold large-font-size">어르신께서 계신 지역은 어디인가요?</h1>
+              <h1 className={`${bigFontSize ? "x-large-font-size" : "large-font-size"} text-basic-black font-bold`}>
+                어르신께서 계신 지역은 어디인가요?
+              </h1>
             </MoveUpAnimation>
 
             <div className="w-full flex flex-wrap items-center justify-center px-[20px] gap-[15px] sm:gap-[15px] md:gap-[20px] lg:gap-[30px]">

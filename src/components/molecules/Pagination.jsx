@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom"
 import PaginationDoubleBtn from "../atoms/PaginationDoubleBtn"
 import PaginationBtn from "../atoms/PaginationBtn"
 import { basicTextBold, basicTextRegular } from "../../lib/constants/style/basicText"
+import useBigFontSizeStore from "../../lib/store/useBigFontSizeStore"
 
 const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, setPage }) => {
+  const { bigFontSize } = useBigFontSizeStore()
+
   const navigate = useNavigate()
 
   const pageList = useMemo(() => {
@@ -63,7 +66,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
       {pageList?.map((item, index) => (
         <span
           key={index}
-          className={`flex h-[30px] w-[30px] cursor-pointer items-center justify-center ${item === Number(currentPage) ? basicTextBold : basicTextRegular}`}
+          className={`flex h-[30px] w-[30px] cursor-pointer items-center justify-center ${item === Number(currentPage) ? basicTextBold : basicTextRegular} ${bigFontSize && "large-font-size"}`}
           style={{
             color: "#191919",
           }}

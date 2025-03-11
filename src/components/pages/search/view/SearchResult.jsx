@@ -6,19 +6,22 @@ import route from "../../../../router/route"
 import Pagination from "../../../molecules/Pagination"
 import useSearchResultController from "../controller/useSearchResultController"
 import CallBtn from "../../../molecules/CallBtn"
+import useBigFontSizeStore from "../../../../lib/store/useBigFontSizeStore"
 
 const SearchResult = () => {
+  const { bigFontSize } = useBigFontSizeStore()
+
   const { totalCount, totalPages, data, isLoading, isError, navigate, handleCall, searchParams, page } =
     useSearchResultController()
 
   const styleMapping = {
-    infoSubText: "small-font-size text-gray-500",
+    infoSubText: `${bigFontSize ? "medium-font-size" : "small-font-size"} text-gray-500`,
   }
 
   return (
     <BasicTemplate isNoBack={false} isNoLogo={true} isNoSearch={true} isSquareLogo={true} headerText={"검색하기"}>
       <MainContainer>
-        <div className="w-full pl-[20px] my-[20px]">
+        <div className={`${bigFontSize ? "large-font-size" : "medium-font-size"} w-full pl-[20px] my-[20px]`}>
           전체 <b>{totalCount || 0}개</b>
         </div>
         {isLoading ? (
@@ -37,12 +40,16 @@ const SearchResult = () => {
                 </colgroup>
                 <thead className="bg-gray-200 ">
                   <tr>
-                    <th className="pl-[20px] py-[10px] text-left">
+                    <th
+                      className={`${bigFontSize ? "large-font-size" : "medium-font-size"} pl-[20px] py-[10px] text-left`}
+                    >
                       시설정보
                       <br />
-                      <span className="small-font-size text-gray-700">제목 클릭 시 상세 페이지 이동</span>
+                      <span className={`${bigFontSize ? "medium-font-size" : "small-font-size"} text-gray-700`}>
+                        제목 클릭 시 상세 페이지 이동
+                      </span>
                     </th>
-                    <th>연락처</th>
+                    <th className={`${bigFontSize ? "large-font-size" : "medium-font-size"}`}>연락처</th>
                   </tr>
                 </thead>
 
@@ -56,7 +63,11 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
-                          <button className="font-[500] self-start">{item?.FACLT_NM || "-"}</button>
+                          <button
+                            className={`${bigFontSize ? "large-font-size" : "medium-font-size"} font-[500] self-start`}
+                          >
+                            {item?.FACLT_NM || "-"}
+                          </button>
                           <p className={styleMapping.infoSubText}>
                             {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ") || "-"}
                           </p>
