@@ -24,19 +24,15 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
         isSquareLogo={isSquareLogo}
         headerText={headerText}
       />
-      <div
-        className="w-full h-fit px-[25px] flex justify-end items-center mt-[20px] sticky top-[105px] z-50"
-        aria-hidden="true"
-      >
+      <div className="w-full h-fit px-[25px] flex justify-end items-center mt-[20px] sticky top-[105px] z-50">
         <button
-          className={`
-            ${bigFontSize ? "large-font-size" : "medium-font-size"}
-            w-fit h-fit p-[5px_10px] bg-[#f8f9fa] font-bold border-[1px] border-gray-300 rounded-[5px] hover:bg-gray-200
-             transition-colors`}
+          className={`w-fit h-fit p-[5px_10px] bg-[#f8f9fa] border-[1px] border-gray-300 rounded-[5px] hover:bg-gray-200 transition-colors`}
           onClick={() => setBigFontSize(!bigFontSize)}
-          aria-hidden="true"
+          aria-label={`이 버튼은 글씨 크기를 변경하는 버튼입니다. 클릭하면 글씨 크기가 ${bigFontSize ? "작아집니다" : "커집니다"}.`}
         >
-          {bigFontSize ? "작은" : "큰"} 글씨
+          <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"} font-bold`} aria-hidden="true">
+            {bigFontSize ? "작은" : "큰"} 글씨
+          </p>
         </button>
       </div>
       {children}
