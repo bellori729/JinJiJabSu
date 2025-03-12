@@ -79,7 +79,7 @@ const Home = () => {
               />
             </MoveUpAnimation>
 
-            <MoveUpAnimation className="my-[40px] px-[20px]" durationTime={0.6} amountRatio={1}>
+            <MoveUpAnimation className="my-[40px] px-[20px]" durationTime={0.6}>
               <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-[#272829]`}>
                 경기도 내 타 지역으로 가시더라도 검색을 통해 해당 지역의 무료 급식소를 확인하실 수 있습니다.
               </p>
