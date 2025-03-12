@@ -5,6 +5,8 @@
 
 ## 💁🏻 프로젝트 소개
 
+🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
+
 <p>
   진지잡수는 경기도 내의 어르신을 대상으로 하는 무료급식소에 대한 시설명, 소재지주소, 급식시간, 휴무일, 운영정보 등의 현황을 확인할 수 있는 서비스입니다.<br>
   데이터는 경기데이터드림에 등록된 「어르신무료급식소현황」 을 활용하여 제공합니다.
@@ -26,8 +28,6 @@
     <li>다양한 디바이스에서 사용 가능한 디자인</li>
     <li>모든 페이지 Chrome Lighthouse 접근성 점수 만점</li>
   </ul>
-
-🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
 
 ## 👨🏻‍💻 프로젝트 진행자
 
