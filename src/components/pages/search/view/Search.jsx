@@ -25,7 +25,6 @@ const Search = () => {
       <MainContainer>
         {imageLoaded ? (
           <>
-            <p className="sr-only">이곳은 검색하기 페이지입니다.</p>
             <MoveUpAnimation
               className="w-full px-[20px] flex justify-center mt-[40px] mb-[60px]"
               durationTime={0.8}
