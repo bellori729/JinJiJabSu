@@ -29,7 +29,7 @@ const Home = () => {
           <>
             <div className="flex flex-col my-[40px] px-[20px]">
               <MoveUpAnimation durationTime={0.6}>
-                <p className={`${bigFontSize ? "x-large-font-size" : "large-font-size"} font-bold`}>
+                <p className={`${bigFontSize ? "x-large-font-size" : "large-font-size"} font-bold`} aria-hidden="true">
                   어르신! 진지잡수~
                 </p>
               </MoveUpAnimation>
@@ -66,8 +66,14 @@ const Home = () => {
             </div>
 
             <MoveUpAnimation className={`px-[20px]`}>
-              <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-[#272829]`}>
+              <p
+                className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-[#272829]`}
+                aria-hidden="true"
+              >
                 어르신께서 거주하시는 시/군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!
+              </p>
+              <p className="sr-only">
+                어르신께서 거주하시는 시 또는 군에서 운영 중인 무료급식소의 정보를 한 눈에 확인하실 수 있어요!
               </p>
             </MoveUpAnimation>
 
@@ -76,6 +82,7 @@ const Home = () => {
                 className="w-[320px] h-[285px] md:w-[640px] md:h-[570px] lg:w-[960px] lg:h-[855px]"
                 src={imageUrls[1]}
                 alt="경기도 산하 시군구 별 로고"
+                aria-hidden="true"
               />
             </MoveUpAnimation>
 
@@ -96,7 +103,8 @@ const Home = () => {
               <img
                 className="w-full h-full object-cover"
                 src={imageUrls[2]}
-                alt="제33대 경기도 의정부시 김동근 시장이 어르신들에게 무료급식을 나눠주고 있습니다."
+                alt="제33대 경기도 의정부시 김동근 시장이 어르신들에게 무료급식을 나눠주고 있는 모습"
+                aria-hidden="true"
               />
 
               <MoveUpAnimation className="absolute top-0 left-0 w-full h-full pt-[171px] flex flex-col items-center gap-[45px] z-30">
@@ -109,7 +117,7 @@ const Home = () => {
                 </p>
 
                 <motion.button
-                  className={`${bigFontSize ? "x-large-font-size" : "large-font-size"} px-[26px] py-[13px] rounded-[20px] bg-basic-green text-white font-bold shadow-[0px_4px_4px_rgba(0,0,0,0.25)]`}
+                  className={`px-[26px] py-[13px] rounded-[20px] bg-basic-green shadow-[0px_4px_4px_rgba(0,0,0,0.25)]`}
                   animate={{
                     y: [0, -10, 0], // 0 → 위로 10px → 다시 원래 위치 (반복)
                   }}
@@ -122,8 +130,11 @@ const Home = () => {
                   onClick={() => {
                     navigate(route.search)
                   }}
+                  title="무료급식소 찾기"
                 >
-                  무료급식소 찾기
+                  <p className={`${bigFontSize ? "x-large-font-size" : "large-font-size"} text-white font-bold`}>
+                    무료급식소 찾기
+                  </p>
                 </motion.button>
               </MoveUpAnimation>
 

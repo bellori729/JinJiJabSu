@@ -11,6 +11,7 @@ const SiGunLogo = ({ className, style, path, siGunName, alt = "" }) => {
       src={path}
       alt={alt || siGunName}
       title={siGunName}
+      aria-hidden="true"
     >
       {siGunName}
     </img>

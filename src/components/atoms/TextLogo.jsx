@@ -8,8 +8,8 @@ const TextLogo = ({ className, style }) => {
       className={className ? className : `w-[128px] h-[30px] hover:scale-[1.05] transition-transform cursor-pointer`}
       style={style}
       src={"/assets/images/text_logo.png"}
-      alt={"홈으로 이동"}
-      title={"홈으로 이동"}
+      alt={"홈"}
+      aria-hidden="true"
       onClick={() => navigate(route.home)}
     />
   )

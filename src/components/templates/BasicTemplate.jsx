@@ -28,7 +28,7 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
         <button
           className={`w-fit h-fit p-[5px_10px] bg-[#f8f9fa] border-[1px] border-gray-300 rounded-[5px] hover:bg-gray-200 transition-colors`}
           onClick={() => setBigFontSize(!bigFontSize)}
-          aria-label={`이 버튼은 글씨 크기를 변경하는 버튼입니다. 클릭하면 글씨 크기가 ${bigFontSize ? "작아집니다" : "커집니다"}.`}
+          title={`글씨 ${bigFontSize ? "작게" : "크게"} 변경하기`}
         >
           <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"} font-bold`} aria-hidden="true">
             {bigFontSize ? "작은" : "큰"} 글씨

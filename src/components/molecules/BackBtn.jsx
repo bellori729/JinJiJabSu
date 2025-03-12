@@ -6,12 +6,11 @@ const BackBtn = ({ onClick }) => {
   return (
     <button
       type="button"
-      aria-label="뒤로가기"
-      title="뒤로가기"
+      title="이전 페이지로 이동"
       className="w-[30px] h-[30px] hover:scale-[1.1] transition-transform"
       onClick={onClick || (() => navigate(-1))}
     >
-      <img className={`w-full h-full`} src="/assets/icons/back.png" alt="" />
+      <img className={`w-full h-full`} src="/assets/icons/back.png" alt="뒤로가기" aria-hidden="true" />
     </button>
   )
 }
