@@ -5,6 +5,8 @@
 
 ## 💁🏻 프로젝트 소개
 
+🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
+
 <p>
   진지잡수는 경기도 내의 어르신을 대상으로 하는 무료급식소에 대한 시설명, 소재지주소, 급식시간, 휴무일, 운영정보 등의 현황을 확인할 수 있는 서비스입니다.<br>
   데이터는 경기데이터드림에 등록된 「어르신무료급식소현황」 을 활용하여 제공합니다.
@@ -27,17 +29,24 @@
     <li>모든 페이지 Chrome Lighthouse 접근성 점수 만점</li>
   </ul>
 
-🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
+## 👨🏻‍💻 프로젝트 진행자
+
+|                            김종덕                             |
+| :-------------------------------------------------------------: |
+| ![bellori729](https://avatars.githubusercontent.com/u/145115283?v=4) |
 
 ## 📚 기술
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/ReactRouter-CA4245?style=flat-square&logo=reactrouter&logoColor=white"/> <img src="https://img.shields.io/badge/Zustand-693636?style=flat-square&logoColor=white"/> <img src="https://img.shields.io/badge/ReactQeury-ff4154?style=flat-square&logo=reactquery&logoColor=white"/> <img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white"/> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white"/> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/> <img src="https://img.shields.io/badge/Netlify-000000?style=flat-square&logo=netlify&logoColor=#00c7b7"/> <img src="https://img.shields.io/badge/Figma-f24e1e?style=flat-square&logo=figma&logoColor=white"/>
 
 ## 💻 화면 구성
-
 |                                                  메인                                                   |                                                  검색하기                                                   |
 | :-----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | 
-| ![메인](https://github.com/bellori729/bellori729/assets/145115283/8ad0bfcd-0024-46c3-9119-f56f4a6d01e8) | ![검색하기](https://github.com/bellori729/bellori729/assets/145115283/a1b35381-b940-4ed3-9105-c6f5028f5ff4) | 
+| ![메인](https://github.com/user-attachments/assets/c791b433-b20b-4b61-bbca-a418c58620b9) | ![검색하기](https://github.com/user-attachments/assets/6b1f2342-7e6a-4113-b371-395117f12069) | 
 
 |                                                  검색결과                                                   |                                                  시설상세                                                   |
 | :-----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | 
-| ![검색결과](https://github.com/bellori729/bellori729/assets/145115283/8ad0bfcd-0024-46c3-9119-f56f4a6d01e8) | ![시설상세](https://github.com/bellori729/bellori729/assets/145115283/a1b35381-b940-4ed3-9105-c6f5028f5ff4) | 
+| ![검색결과](https://github.com/user-attachments/assets/dff2f4c5-25fc-4e20-b3c7-7490a0444c65) | ![시설상세](https://github.com/user-attachments/assets/add9bdab-5aaa-4874-80f4-61a67e07dbdc) | 
+
+|                                                  큰 글씨 모드                                                   |
+| :-----------------------------------------------------------------------------------------------------: |
+| ![큰 글씨 모드](https://github.com/user-attachments/assets/d1a45aa8-0f49-4417-8684-6ea767a39262) |
