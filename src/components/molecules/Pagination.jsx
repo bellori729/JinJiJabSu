@@ -80,7 +80,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           }}
         >
           <span aria-hidden="true">{item}</span>
-          <span className="sr-only">{item} 페이지로 이동하기</span>
+          <span className="sr-only">{`${item} 페이지로 이동하기`}</span>
         </button>
       ))}
       <PaginationBtn

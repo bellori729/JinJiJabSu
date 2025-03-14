@@ -25,7 +25,7 @@ const SearchResult = () => {
           <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"}`} aria-hidden="true">
             전체 <b>{totalCount || 0}개</b>
           </p>
-          <p className="sr-only">전체 시설 개수는 {totalCount || 0}개 입니다.</p>
+          <p className="sr-only">{`전체 시설 개수는 ${totalCount || 0}개 입니다.`}</p>
         </div>
         {isLoading ? (
           <LoadingSpinner className={"h-[252px]"} />
@@ -97,8 +97,7 @@ const SearchResult = () => {
                           </p>
                           {item?.MEALSRV_TARGET_INFO ? (
                             <span className="sr-only">
-                              급식 대상은
-                              {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ")}입니다.
+                              {`급식 대상은 ${item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ")}입니다.`}
                             </span>
                           ) : (
                             <span className="sr-only">급식 대상 정보가 등록되어 있지 않습니다.</span>
@@ -109,7 +108,7 @@ const SearchResult = () => {
                           </p>
                           {item?.RESTDAY_INFO ? (
                             <span className="sr-only">
-                              급식 요일은 {item?.RESTDAY_INFO.replaceAll("+", ", ")} 입니다.
+                              {`급식 요일은 ${item?.RESTDAY_INFO.replaceAll("+", ", ")} 입니다.`}
                             </span>
                           ) : (
                             <span className="sr-only">급식 요일 정보가 등록되어 있지 않습니다.</span>
@@ -119,7 +118,7 @@ const SearchResult = () => {
                             {item?.MEALSRV_TM_INFO || "-"}
                           </p>
                           {item?.MEALSRV_TM_INFO ? (
-                            <span className="sr-only">급식 시간은 {item?.MEALSRV_TM_INFO} 입니다.</span>
+                            <span className="sr-only">{`급식 시간은 ${item?.MEALSRV_TM_INFO} 입니다.`}</span>
                           ) : (
                             <span className="sr-only">급식 시간 정보가 등록되어 있지 않습니다.</span>
                           )}
