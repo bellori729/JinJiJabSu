@@ -32,7 +32,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
   }, [totalPages, currentPage, rangeSize])
 
   return (
-    <div className="flex h-[30px] w-full justify-center items-center gap-[8px] self-center mt-[50px]">
+    <div id="pagination" className="flex h-[30px] w-full justify-center items-center gap-[8px] self-center mt-[50px]">
       <PaginationDoubleBtn
         isLeft={true}
         disabled={Number(currentPage) === 1}
