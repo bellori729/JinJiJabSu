@@ -1,6 +1,10 @@
 const PaginationDoubleBtn = ({ className, isLeft, disabled, onClick }) => {
   return (
-    <button onClick={onClick} title={isLeft ? "이전 페이지 목록으로 건너뛰기" : "다음 페이지 목록으로 건너뛰기"}>
+    <button
+      onClick={onClick}
+      title={isLeft ? "이전 페이지 목록으로 건너뛰기" : "다음 페이지 목록으로 건너뛰기"}
+      disabled={disabled}
+    >
       <svg
         width="30"
         height="30"

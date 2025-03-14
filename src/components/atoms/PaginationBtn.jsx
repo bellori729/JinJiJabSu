@@ -1,6 +1,6 @@
 const PaginationBtn = ({ className, isLeft, disabled, onClick }) => {
   return (
-    <button onClick={onClick} title={isLeft ? "이전 페이지로 이동" : "다음 페이지로 이동"}>
+    <button onClick={onClick} title={isLeft ? "이전 페이지로 이동" : "다음 페이지로 이동"} disabled={disabled}>
       <svg
         width="31"
         height="30"
