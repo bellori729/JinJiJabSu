@@ -34,7 +34,6 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
   return (
     <div className="flex h-[30px] w-full justify-center items-center gap-[8px] self-center mt-[50px]">
       <PaginationDoubleBtn
-        className="cursor-pointer"
         isLeft={true}
         disabled={Number(currentPage) === 1}
         onClick={() => {
@@ -64,7 +63,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
         }}
       />
       {pageList?.map((item, index) => (
-        <span
+        <button
           key={index}
           className={`flex h-[30px] w-[30px] cursor-pointer items-center justify-center ${item === Number(currentPage) ? basicTextBold : basicTextRegular} ${bigFontSize && "large-font-size"}`}
           style={{
@@ -80,8 +79,9 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
             }
           }}
         >
-          {item}
-        </span>
+          <span aria-hidden="true">{item}</span>
+          <span className="sr-only">{item} 페이지로 이동하기</span>
+        </button>
       ))}
       <PaginationBtn
         className="cursor-pointer"

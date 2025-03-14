@@ -61,6 +61,7 @@ const SearchResult = () => {
                     </th>
                     <th className={`${bigFontSize ? "large-font-size" : "medium-font-size"}`}>
                       연락처
+                      <br />
                       <p className="sr-only">
                         시설의 연락처 정보가 있을 경우 전화 걸기 버튼을 클릭하면 전화를 걸 수 있습니다.
                       </p>
@@ -78,6 +79,7 @@ const SearchResult = () => {
                             navigate(route.center_detail, { state: { item } })
                           }}
                         >
+                          {/* 시설명 */}
                           <button
                             className={`self-start`}
                             aria-label={`${item?.FACLT_NM} 시설의 상세 페이지로 이동하기`}
@@ -89,21 +91,38 @@ const SearchResult = () => {
                               {item?.FACLT_NM || "-"}
                             </p>
                           </button>
-                          <p className={styleMapping.infoSubText}>
-                            <span className="sr-only">급식 대상은 </span>
+                          {/* 급식 대상 */}
+                          <p className={styleMapping.infoSubText} aria-hidden="true">
                             {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ") || "-"}
-                            <span className="sr-only"> 입니다.</span>
                           </p>
-                          <p className={styleMapping.infoSubText}>
-                            <span className="sr-only">급식 요일은 </span>
+                          {item?.MEALSRV_TARGET_INFO ? (
+                            <span className="sr-only">
+                              급식 대상은
+                              {item?.MEALSRV_TARGET_INFO.replaceAll("+", ", ")}입니다.
+                            </span>
+                          ) : (
+                            <span className="sr-only">급식 대상 정보가 등록되어 있지 않습니다.</span>
+                          )}
+                          {/* 급식 요일 */}
+                          <p className={styleMapping.infoSubText} aria-hidden="true">
                             {item?.RESTDAY_INFO.replaceAll("+", ", ") || "-"}
-                            <span className="sr-only"> 입니다.</span>
                           </p>
-                          <p className={styleMapping.infoSubText}>
-                            <span className="sr-only">급식 시간은 </span>
+                          {item?.RESTDAY_INFO ? (
+                            <span className="sr-only">
+                              급식 요일은 {item?.RESTDAY_INFO.replaceAll("+", ", ")} 입니다.
+                            </span>
+                          ) : (
+                            <span className="sr-only">급식 요일 정보가 등록되어 있지 않습니다.</span>
+                          )}
+                          {/* 급식 시간 */}
+                          <p className={styleMapping.infoSubText} aria-hidden="true">
                             {item?.MEALSRV_TM_INFO || "-"}
-                            <span className="sr-only"> 입니다.</span>
                           </p>
+                          {item?.MEALSRV_TM_INFO ? (
+                            <span className="sr-only">급식 시간은 {item?.MEALSRV_TM_INFO} 입니다.</span>
+                          ) : (
+                            <span className="sr-only">급식 시간 정보가 등록되어 있지 않습니다.</span>
+                          )}
                         </div>
                       </td>
 
@@ -112,7 +131,12 @@ const SearchResult = () => {
                           {item?.MANAGE_INST_TELNO ? (
                             <CallBtn onClick={() => handleCall(item.MANAGE_INST_TELNO)} />
                           ) : (
-                            <span className="font-[500]">-</span>
+                            <>
+                              <span className="font-[500]" aria-hidden="true">
+                                -
+                              </span>
+                              <span className="sr-only">전화번호 정보가 등록되어 있지 않습니다.</span>
+                            </>
                           )}
                         </div>
                       </td>

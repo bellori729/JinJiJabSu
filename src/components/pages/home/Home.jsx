@@ -35,17 +35,24 @@ const Home = () => {
               </MoveUpAnimation>
             </div>
 
-            <MoveUpAnimation className="px-[20px]" durationTime={0.6}>
-              <p className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-basic-blue font-bold inline`}>
-                진지잡수
+            <MoveUpAnimation durationTime={0.6}>
+              <p className="px-[20px]" aria-hidden="true">
+                <span
+                  className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-basic-blue font-bold inline`}
+                >
+                  진지잡수
+                </span>
+                는{" "}
+                <span
+                  className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-basic-green font-bold inline`}
+                >
+                  경기도
+                </span>{" "}
+                내 어르신을 대상으로 하는 무료급식소 현황을 확인할 수 있는 서비스입니다.
               </p>
-              는{" "}
-              <p
-                className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-basic-green font-bold inline`}
-              >
-                경기도
-              </p>{" "}
-              내 어르신을 대상으로 하는 무료급식소 현황을 확인할 수 있는 서비스입니다.
+              <p className="sr-only">
+                진지잡수는 경기도 내 어르신을 대상으로 하는 무료급식소 현황을 확인할 수 있는 서비스입니다.
+              </p>
             </MoveUpAnimation>
             {/* <div >
           <MoveUpOrderAnimationText
