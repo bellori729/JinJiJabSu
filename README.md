@@ -6,8 +6,6 @@
 
 ## 💁🏻 프로젝트 소개
 
-[![](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjinjijabsu.netlify.app&count_bg=%239A9A9A&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=site+visitors&edge_flat=false)](https://hits.seeyoufarm.com)
-<br/>
 🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
 
 <p>
