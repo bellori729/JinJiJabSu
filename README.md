@@ -1,10 +1,13 @@
 # 진지잡수 - 경기도 내 어르신 대상 무료급식소 현황
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/65393659-c3e2-4553-b973-625308ec7e2a" alt="진지잡수 이미지">
 </p>
 
 ## 💁🏻 프로젝트 소개
 
+[![](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjinjijabsu.netlify.app&count_bg=%239A9A9A&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=site+visitors&edge_flat=false)](https://hits.seeyoufarm.com)
+<br/>
 🖥 <a href="https://jinjijabsu.netlify.app" target="_blank">배포 URL 바로가기</a>
 
 <p>
@@ -31,22 +34,24 @@
 
 ## 👨🏻‍💻 프로젝트 진행자
 
-|                            김종덕                             |
-| :-------------------------------------------------------------: |
+|                                김종덕                                |
+| :------------------------------------------------------------------: |
 | ![bellori729](https://avatars.githubusercontent.com/u/145115283?v=4) |
 
 ## 📚 기술
+
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/ReactRouter-CA4245?style=flat-square&logo=reactrouter&logoColor=white"/> <img src="https://img.shields.io/badge/Zustand-693636?style=flat-square&logoColor=white"/> <img src="https://img.shields.io/badge/ReactQeury-ff4154?style=flat-square&logo=reactquery&logoColor=white"/> <img src="https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white"/> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white"/> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/> <img src="https://img.shields.io/badge/Netlify-000000?style=flat-square&logo=netlify&logoColor=#00c7b7"/> <img src="https://img.shields.io/badge/Figma-f24e1e?style=flat-square&logo=figma&logoColor=white"/>
 
 ## 💻 화면 구성
-|                                                  메인                                                   |                                                  검색하기                                                   |
-| :-----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | 
-| ![메인](https://github.com/user-attachments/assets/c791b433-b20b-4b61-bbca-a418c58620b9) | ![검색하기](https://github.com/user-attachments/assets/6b1f2342-7e6a-4113-b371-395117f12069) | 
 
-|                                                  검색결과                                                   |                                                  시설상세                                                   |
-| :-----------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | 
-| ![검색결과](https://github.com/user-attachments/assets/dff2f4c5-25fc-4e20-b3c7-7490a0444c65) | ![시설상세](https://github.com/user-attachments/assets/add9bdab-5aaa-4874-80f4-61a67e07dbdc) | 
+|                                           메인                                           |                                           검색하기                                           |
+| :--------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+| ![메인](https://github.com/user-attachments/assets/c791b433-b20b-4b61-bbca-a418c58620b9) | ![검색하기](https://github.com/user-attachments/assets/6b1f2342-7e6a-4113-b371-395117f12069) |
 
-|                                                  큰 글씨 모드                                                   |
-| :-----------------------------------------------------------------------------------------------------: |
+|                                           검색결과                                           |                                           시설상세                                           |
+| :------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+| ![검색결과](https://github.com/user-attachments/assets/dff2f4c5-25fc-4e20-b3c7-7490a0444c65) | ![시설상세](https://github.com/user-attachments/assets/add9bdab-5aaa-4874-80f4-61a67e07dbdc) |
+
+|                                           큰 글씨 모드                                           |
+| :----------------------------------------------------------------------------------------------: |
 | ![큰 글씨 모드](https://github.com/user-attachments/assets/d1a45aa8-0f49-4417-8684-6ea767a39262) |
