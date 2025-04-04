@@ -155,9 +155,7 @@ const SearchResult = () => {
               <Pagination
                 route={route.search_result}
                 currentPage={page}
-                queryString={`${searchParams.get("nm") ? "&nm=" + searchParams.get("nm") : ""}${
-                  searchParams.get("cd") ? "&cd=" + searchParams.get("cd") : ""
-                }`}
+                queryString={`${searchParams.get("cd") ? "?cd=" + searchParams.get("cd") : ""}${searchParams.get("nm") ? "&nm=" + searchParams.get("nm") : ""}`}
                 totalPages={totalPages || 1}
                 rangeSize={5}
               />

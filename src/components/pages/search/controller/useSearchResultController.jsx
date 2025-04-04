@@ -10,10 +10,22 @@ const useSearchResultController = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
+  // componentDidMount
+  useEffect(() => {
+    const hasPageParam = searchParams.has("page")
+
+    if (!hasPageParam) {
+      const params = new URLSearchParams(searchParams)
+      params.set("page", "1")
+
+      navigate({ search: params.toString() }, { replace: true })
+    }
+  }, []) // eslint-disable-line
+
   const { totalCount, totalPages, setPagination } = usePaginationStore()
 
   const page = useMemo(() => {
-    return searchParams.get("page") ? searchParams.get("page") : 1
+    return searchParams.get("page") ? Number(searchParams.get("page")) : 1
   }, [searchParams])
 
   const SIGUN_NM = useMemo(() => {
@@ -28,7 +40,7 @@ const useSearchResultController = () => {
     const params = {
       KEY: API_KEY,
       Type: "json",
-      pIndex: page,
+      pIndex: Number(page),
       pSize: 5,
 
       SIGUN_NM,

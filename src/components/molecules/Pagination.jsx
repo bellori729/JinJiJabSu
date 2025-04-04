@@ -40,7 +40,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           const prevGroupLastPage = Math.max(Math.floor((currentPage - 1) / rangeSize) * rangeSize, 1)
 
           if (route) {
-            navigate(route + `?page=${prevGroupLastPage}${queryString ? queryString : ""}`, { replace: true })
+            navigate(route + `${queryString ? `${queryString}&` : "?"}page=${prevGroupLastPage}`, { replace: true })
           } else {
             setPage(Number(prevGroupLastPage))
           }
@@ -56,7 +56,9 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           }
 
           if (route) {
-            navigate(route + `?page=${Number(currentPage) - 1}${queryString ? queryString : ""}`, { replace: true })
+            navigate(route + `${queryString ? `${queryString}&` : "?"}page=${Number(currentPage) - 1}`, {
+              replace: true,
+            })
           } else {
             setPage(Number(currentPage) - 1)
           }
@@ -71,7 +73,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           }}
           onClick={() => {
             if (route) {
-              navigate(route + `?page=${item}${queryString ? queryString : ""}`, {
+              navigate(route + `${queryString ? `${queryString}&` : "?"}page=${item}`, {
                 replace: true,
               })
             } else {
@@ -93,7 +95,9 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           }
 
           if (route) {
-            navigate(route + `?page=${Number(currentPage) + 1}${queryString ? queryString : ""}`, { replace: true })
+            navigate(route + `${queryString ? `${queryString}&` : "?"}page=${Number(currentPage) + 1}`, {
+              replace: true,
+            })
           } else {
             setPage(Number(currentPage) + 1)
           }
@@ -107,7 +111,7 @@ const Pagination = ({ route, queryString, totalPages, currentPage, rangeSize, se
           const nextGroupFirstPage = Math.min(Math.ceil(currentPage / rangeSize) * rangeSize + 1, totalPages)
 
           if (route) {
-            navigate(route + `?page=${nextGroupFirstPage}${queryString ? queryString : ""}`, { replace: true })
+            navigate(route + `${queryString ? `${queryString}&` : "?"}page=${nextGroupFirstPage}`, { replace: true })
           } else {
             setPage(Number(nextGroupFirstPage))
           }
