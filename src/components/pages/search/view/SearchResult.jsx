@@ -92,7 +92,7 @@ const SearchResult = () => {
                               aria-label={`${item?.FACLT_NM} 시설의 상세 페이지로 이동하기`}
                             >
                               <p
-                                className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-[#272829] font-[500]`}
+                                className={`${bigFontSize ? "large-font-size" : "medium-font-size"} text-[#272829] font-[500] text-left`}
                                 aria-hidden="true"
                               >
                                 {item?.FACLT_NM || "-"}
