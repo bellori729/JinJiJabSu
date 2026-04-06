@@ -1,7 +1,6 @@
 import BodyContainer from "./BodyContainer"
 import SkipLink from "../atoms/SkipLink"
 import Header from "../organisms/Header"
-// import Navigation from "../organisms/Navigation"
 import Footer from "../organisms/Footer"
 import useBigFontSizeStore from "../../lib/store/useBigFontSizeStore"
 
@@ -10,12 +9,7 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
 
   return (
     <BodyContainer>
-      {!noSkipLink && (
-        <>
-          <SkipLink id="main" />
-          {/* <SkipLink id="navigation" text="네비게이션 바로가기" /> */}
-        </>
-      )}
+      {!noSkipLink && <SkipLink id="main" />}
       <Header
         isNone={isNone}
         isNoBack={isNoBack}
@@ -24,9 +18,9 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
         isSquareLogo={isSquareLogo}
         headerText={headerText}
       />
-      <div className="w-full h-fit px-[25px] flex justify-end items-center mt-[20px] sticky top-[105px] z-50">
+      <div className="sticky top-[105px] z-50 mt-[20px] flex h-fit w-full items-center justify-end px-[25px]">
         <button
-          className={`w-fit h-fit p-[5px_10px] bg-[#f8f9fa] border-[1px] border-gray-300 rounded-[5px] hover:bg-gray-200 transition-colors`}
+          className="h-fit w-fit rounded-[5px] border-[1px] border-gray-300 bg-[#f8f9fa] p-[5px_10px] transition-colors hover:bg-gray-200"
           onClick={() => setBigFontSize(!bigFontSize)}
           title={`글씨 ${bigFontSize ? "작게" : "크게"} 변경하기`}
         >
@@ -37,7 +31,6 @@ const BasicTemplate = ({ isNone, isNoBack, isNoSearch, isNoLogo, isSquareLogo, h
       </div>
       {children}
       <Footer />
-      {/* <Navigation /> */}
     </BodyContainer>
   )
 }

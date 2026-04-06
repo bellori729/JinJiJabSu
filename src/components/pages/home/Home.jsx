@@ -1,13 +1,14 @@
 import BasicTemplate from "../../templates/BasicTemplate"
 import MainContainer from "../../templates/MainContainer"
 import MoveUpAnimation from "../../atoms/MoveUpAnimation"
-// import MoveUpOrderAnimationText from "../../atoms/MoveUpOrderAnimationText"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import route from "../../../router/route"
 import useImagePreloader from "../../../lib/hooks/useImagePreloader"
 import LoadingSpinner from "../../atoms/LoadingSpinner"
 import useBigFontSizeStore from "../../../lib/store/useBigFontSizeStore"
+import Seo from "../../shared/Seo"
+import { organizationStructuredData, websiteStructuredData } from "../../../lib/seo/structuredData"
 
 const Home = () => {
   const { bigFontSize } = useBigFontSizeStore()
@@ -24,6 +25,13 @@ const Home = () => {
 
   return (
     <BasicTemplate isNoBack={true}>
+      <Seo
+        title="경기도 무료급식소 안내"
+        description="경기도 어르신을 위한 무료급식소 정보를 지역별로 빠르게 확인하세요. 시설명, 주소, 급식 시간, 휴무일, 연락처를 한 번에 살펴볼 수 있습니다."
+        path={route.home}
+        keywords={["경기도 무료급식소", "어르신 무료급식소", "경로식당", "복지급식소"]}
+        structuredData={[websiteStructuredData, organizationStructuredData]}
+      />
       <MainContainer className={"!min-h-[1528px] md:!min-h-[2074px] lg:!min-h-[2330px]"}>
         {imageLoaded ? (
           <>
