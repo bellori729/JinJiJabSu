@@ -50,7 +50,7 @@ export const filterFreeMealItemsByRegion = (items = [], regionName = "") => {
     return items
   }
 
-  const normalizedRegionName = normalizeText(regionName)
+  const normalizedRegionName = normalizeText(regionName.replace("특례시", "시"))
 
   return items.filter((item) => {
     const searchableText = normalizeText(
@@ -74,7 +74,7 @@ export const normalizeFreeMealItem = (item, fallback = {}) => {
 
   const roadAddress = item.rdnmadr || item.REFINE_ROADNM_ADDR || ""
   const lotAddress = item.lnmadr || item.REFINE_LOTNO_ADDR || ""
-  const sigunName = item.SIGUN_NM || fallback.sigunName || getSigunNameFromAddress(roadAddress || lotAddress)
+  const sigunName = item.SIGUN_NM || getSigunNameFromAddress(roadAddress || lotAddress)
 
   return {
     ...item,
