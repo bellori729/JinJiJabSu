@@ -1,16 +1,24 @@
-import { useNavigate, useSearchParams } from "react-router-dom"
-import usePaginationStore from "../../../../lib/store/usePaginationStore"
 import { useEffect, useMemo } from "react"
-import { API_KEY, API_URL } from "../../../../lib/api/apj"
-import axios from "axios"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
+import {
+  API_URL,
+  FREE_MEAL_MAX_ROWS,
+  FREE_MEAL_PAGE_SIZE,
+  buildFreeMealApiParams,
+  filterFreeMealItemsByRegion,
+  paginateFreeMealItems,
+  parseFreeMealApiResponse,
+} from "../../../../lib/api/apj"
+import usePaginationStore from "../../../../lib/store/usePaginationStore"
+import { getSiGunNameByCode } from "../../../../lib/seo/utils"
 import { minToMs } from "../../../../lib/utils/msConverter"
 
 const useSearchResultController = () => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
 
-  // componentDidMount
   useEffect(() => {
     const hasPageParam = searchParams.has("page")
 
@@ -28,39 +36,56 @@ const useSearchResultController = () => {
     return searchParams.get("page") ? Number(searchParams.get("page")) : 1
   }, [searchParams])
 
-  const SIGUN_NM = useMemo(() => {
-    return searchParams.get("nm") ? searchParams.get("nm") : ""
-  }, [searchParams])
-
   const SIGUN_CD = useMemo(() => {
     return searchParams.get("cd") ? searchParams.get("cd") : ""
   }, [searchParams])
 
-  const getList = async () => {
-    const params = {
-      KEY: API_KEY,
-      Type: "json",
-      pIndex: Number(page),
-      pSize: 5,
+  const SIGUN_NM = useMemo(() => {
+    return searchParams.get("nm") || getSiGunNameByCode(SIGUN_CD)
+  }, [SIGUN_CD, searchParams])
 
-      SIGUN_NM,
-      SIGUN_CD,
+  const getList = async () => {
+    const fallback = {
+      sigunCode: SIGUN_CD,
+      sigunName: SIGUN_NM,
     }
+    const params = buildFreeMealApiParams({
+      pageNo: SIGUN_NM ? 1 : Number(page),
+      numOfRows: SIGUN_NM ? FREE_MEAL_MAX_ROWS : FREE_MEAL_PAGE_SIZE,
+    })
 
     try {
       const response = await axios.get(API_URL, { params })
-      const data = response.data?.OdsnFreemlsvM
+      const parsedData = parseFreeMealApiResponse(response.data, fallback)
 
-      if (!data || !Array.isArray(data) || data.length < 2) {
-        throw new Error("올바른 응답 구조가 아닙니다.")
+      if (!SIGUN_NM) {
+        return parsedData
       }
 
-      const returnData = {
-        totalCount: data[0]?.head?.[0]?.list_total_count || 0,
-        list: data[1]?.row || [],
-      }
+      const totalPages = Math.ceil(parsedData.totalCount / FREE_MEAL_MAX_ROWS)
+      const remainingResponses =
+        totalPages > 1
+          ? await Promise.all(
+              Array.from({ length: totalPages - 1 }, (_, index) =>
+                axios.get(API_URL, {
+                  params: buildFreeMealApiParams({
+                    pageNo: index + 2,
+                    numOfRows: FREE_MEAL_MAX_ROWS,
+                  }),
+                }),
+              ),
+            )
+          : []
+      const fullList = remainingResponses.reduce(
+        (list, pageResponse) => list.concat(parseFreeMealApiResponse(pageResponse.data, fallback).list),
+        parsedData.list,
+      )
+      const filteredList = filterFreeMealItemsByRegion(fullList, SIGUN_NM)
 
-      return returnData
+      return {
+        totalCount: filteredList.length,
+        list: paginateFreeMealItems(filteredList, Number(page)),
+      }
     } catch (error) {
       console.error("API 호출 중 오류 발생:", error)
       return {
@@ -85,7 +110,7 @@ const useSearchResultController = () => {
 
   const handleCall = (tel) => {
     if (!tel) {
-      alert("연락처에 문제가 발생하였습니다.")
+      alert("연락처에 문제가 발생했습니다.")
     } else {
       window.location.href = `tel:${tel}`
     }

@@ -3,7 +3,14 @@ import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import route from "../../../../router/route"
-import { API_KEY, API_URL, KAKAO_MAP_REST_API_KEY } from "../../../../lib/api/apj"
+import {
+  API_URL,
+  FREE_MEAL_MAX_ROWS,
+  KAKAO_MAP_REST_API_KEY,
+  buildFreeMealApiParams,
+  filterFreeMealItemsByRegion,
+  parseFreeMealApiResponse,
+} from "../../../../lib/api/apj"
 import { minToMs } from "../../../../lib/utils/msConverter"
 import { formatInfoText, getSiGunNameByCode } from "../../../../lib/seo/utils"
 
@@ -19,17 +26,39 @@ const useCenterDetailController = () => {
   const hasDetailParams = Boolean(requestedFacilityName && requestedSigunCode)
 
   const getCenterDetail = async () => {
+    const fallback = {
+      sigunCode: requestedSigunCode,
+      sigunName: requestedSigunName,
+    }
     const response = await axios.get(API_URL, {
       params: {
-        KEY: API_KEY,
-        Type: "json",
-        pIndex: 1,
-        pSize: 1000,
-        SIGUN_CD: requestedSigunCode,
+        ...buildFreeMealApiParams({
+          pageNo: 1,
+          numOfRows: FREE_MEAL_MAX_ROWS,
+        }),
       },
     })
 
-    const rows = response.data?.OdsnFreemlsvM?.[1]?.row || []
+    const parsedData = parseFreeMealApiResponse(response.data, fallback)
+    const totalPages = Math.ceil(parsedData.totalCount / FREE_MEAL_MAX_ROWS)
+    const remainingResponses =
+      totalPages > 1
+        ? await Promise.all(
+            Array.from({ length: totalPages - 1 }, (_, index) =>
+              axios.get(API_URL, {
+                params: buildFreeMealApiParams({
+                  pageNo: index + 2,
+                  numOfRows: FREE_MEAL_MAX_ROWS,
+                }),
+              }),
+            ),
+          )
+        : []
+    const parsedRows = remainingResponses.reduce(
+      (list, pageResponse) => list.concat(parseFreeMealApiResponse(pageResponse.data, fallback).list),
+      parsedData.list,
+    )
+    const rows = filterFreeMealItemsByRegion(parsedRows, requestedSigunName)
     const normalizedRequestedName = requestedFacilityName.replaceAll(" ", "")
 
     return (
